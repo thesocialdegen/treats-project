@@ -16,6 +16,7 @@ module.exports = {
 				app_background: 'var(--app_background)',
 				orange_primary: 'var(--orange_primary)',
 				orange_secondary: 'var(--orange_secondary)',
+				sky_blue_primary: 'var(--sky_blue_primary)',
 			},
 			screens: {
 				xs: '320px'
