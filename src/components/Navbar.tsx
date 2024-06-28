@@ -5,6 +5,7 @@ import { Menu, Button } from 'antd';
 import Link from 'next/link';
 import { FC, useState } from 'react';
 import { useRouter } from 'next/navigation';
+import { ENavbarOption } from '@/types/enums';
 
 interface INavbar {
   className?: string;
@@ -14,7 +15,7 @@ const Navbar: FC<INavbar> = (props) => {
   const { className } = props;
   const router  = useRouter();
   console.log(router);
-  const [current, setCurrent] = useState('airdrop');
+  const [current, setCurrent] = useState('');
 
   const handleClick = (e: any) => {
     setCurrent(e.key);
@@ -28,13 +29,13 @@ const Navbar: FC<INavbar> = (props) => {
           <span className='text-2xl text-orange_primary font-bold'>TREATS</span>
         </div>
         <Menu className='w-[600px] bg-transparent flex justify-center' onClick={handleClick} selectedKeys={[current]} mode="horizontal" style={{ borderBottom: 'none' }}>
-          <Menu.Item key="airdrop" className={`${bangers.className} text-orange_secondary text-3xl font-normal`}>
+          <Menu.Item key="airdrop" className={`${bangers.className} ${current === ENavbarOption.AIRDROP ? 'text-light_orange_primary' : 'text-orange_secondary'} text-3xl font-normal`}>
             <Link href="/airdrop">AIRDROP</Link>
           </Menu.Item>
-          <Menu.Item key="campaigns" className={`${bangers.className} text-orange_secondary text-3xl font-normal`}>
+          <Menu.Item key="campaigns" className={`${bangers.className} ${current === ENavbarOption.CAMPAIGNS ? 'text-light_orange_primary' : 'text-orange_secondary'} text-3xl font-normal`}>
             <Link href="/campaigns">CAMPAIGNS</Link>
           </Menu.Item>
-          <Menu.Item key="tokenomics" className={`${bangers.className} text-orange_secondary text-3xl font-normal`}>
+          <Menu.Item key="tokenomics" className={`${bangers.className} ${current === ENavbarOption.TOKENOMICS ? 'text-light_orange_primary' : 'text-orange_secondary'} text-3xl font-normal`}>
             <Link href="/tokenomics">TOKENOMICS</Link>
           </Menu.Item>
         </Menu>
