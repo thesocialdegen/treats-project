@@ -9,6 +9,9 @@
     --orange_primary: #F24444;
     --orange_secondary: #F00;
     --sky_blue_primary: #d7eefd;
+    --sky_blue_secondary: #83D2FF;
+    --yellow_primary: #FFDD2D;
+    --green_primary: #9CFF79;
 }
 
 ::-webkit-scrollbar {
