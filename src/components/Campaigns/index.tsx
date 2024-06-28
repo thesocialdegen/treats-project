@@ -10,7 +10,7 @@ const CampaignsPage = () => {
                 className='rounded-3xl h-[810px] w-[1428px]'
                 style={{
                     border: '5px solid #000',
-                    backgroundImage: 'url(/assets/GIFs/wlcm-campaign.gif)',
+                    backgroundImage: 'url(/assets/GIFs/campaign.gif)',
                     backgroundSize: 'cover',
                     backgroundPosition: 'center',
                   }}
