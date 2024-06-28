@@ -14,6 +14,7 @@ module.exports = {
 			},
 			colors: {
 				app_background: 'var(--app_background)',
+				light_orange_primary: 'var(--light_orange_primary)',
 				orange_primary: 'var(--orange_primary)',
 				orange_secondary: 'var(--orange_secondary)',
 				sky_blue_primary: 'var(--sky_blue_primary)',
