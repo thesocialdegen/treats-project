@@ -5,6 +5,7 @@ import { Menu, Button } from 'antd';
 import Link from 'next/link';
 import { FC, useEffect, useState } from 'react';
 import { useRouter } from 'next/navigation';
+import { usePathname } from 'next/navigation'
 import { ENavbarOption } from '@/types/enums';
 
 interface INavbar {
@@ -14,21 +15,24 @@ interface INavbar {
 const Navbar: FC<INavbar> = (props) => {
   const { className } = props;
   const router  = useRouter();
-  // console.log('router --> ', router, window.location.pathname, ENavbarOption.CAMPAIGNS);
+  const pathname = usePathname();
+  console.log('router --> ', router, pathname);
   const [current, setCurrent] = useState('');
 
-  // useEffect(() => {
-  //   if (window.location.pathname === `/${ENavbarOption.AIRDROP}`) {
-  //       setCurrent(ENavbarOption.AIRDROP);
-  //    } else if (window.location.pathname === `/${ENavbarOption.CAMPAIGNS}`) {
-  //       console.log('hello');
-  //       setCurrent(ENavbarOption.CAMPAIGNS);
-  //    } else if (window.location.pathname === `/${ENavbarOption.TOKENOMICS}`) {
-  //       setCurrent(ENavbarOption.TOKENOMICS);
-  //    } else {
-  //       setCurrent('');
-  //    }
-  // }, [window.location.pathname]);
+  useEffect(() => {
+    if(window) {
+      if (pathname === `/${ENavbarOption.AIRDROP}`) {
+          setCurrent(ENavbarOption.AIRDROP);
+       } else if (pathname === `/${ENavbarOption.CAMPAIGNS}`) {
+          console.log('hello');
+          setCurrent(ENavbarOption.CAMPAIGNS);
+       } else if (pathname === `/${ENavbarOption.TOKENOMICS}`) {
+          setCurrent(ENavbarOption.TOKENOMICS);
+       } else {
+          setCurrent('');
+       }
+    }
+  }, [pathname]);
 
   const handleClick = (e: any) => {
     setCurrent(e.key);
