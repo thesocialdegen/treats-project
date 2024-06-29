@@ -3,8 +3,9 @@ import { bangers } from '@/utils/fonts';
 import ImageIcon from '@/ui-components/ImageIcon';
 import { Menu, Button } from 'antd';
 import Link from 'next/link';
-import { FC, useState } from 'react';
+import { FC, useEffect, useState } from 'react';
 import { useRouter } from 'next/navigation';
+import { usePathname } from 'next/navigation'
 import { ENavbarOption } from '@/types/enums';
 
 interface INavbar {
@@ -14,8 +15,24 @@ interface INavbar {
 const Navbar: FC<INavbar> = (props) => {
   const { className } = props;
   const router  = useRouter();
-  console.log(router);
+  const pathname = usePathname();
+  console.log('router --> ', router, pathname);
   const [current, setCurrent] = useState('');
+
+  useEffect(() => {
+    if(window) {
+      if (pathname === `/${ENavbarOption.AIRDROP}`) {
+          setCurrent(ENavbarOption.AIRDROP);
+       } else if (pathname === `/${ENavbarOption.CAMPAIGNS}`) {
+          console.log('hello');
+          setCurrent(ENavbarOption.CAMPAIGNS);
+       } else if (pathname === `/${ENavbarOption.TOKENOMICS}`) {
+          setCurrent(ENavbarOption.TOKENOMICS);
+       } else {
+          setCurrent('');
+       }
+    }
+  }, [pathname]);
 
   const handleClick = (e: any) => {
     setCurrent(e.key);
