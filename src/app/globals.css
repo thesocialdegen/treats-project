@@ -67,3 +67,7 @@ body {
  .popup-container {
     transform: rotate(-16deg) !important
  }
+
+ :where(.css-dev-only-do-not-override-m4timi).ant-progress .ant-progress-text {
+    display: none !important
+ }
