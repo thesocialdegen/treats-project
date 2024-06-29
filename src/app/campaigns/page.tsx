@@ -1,3 +1,5 @@
+'use client'
+
 import CampaignsPage from '@/components/Campaigns'
 import SEOHead from '@/global/SEOHead'
 import { bangers } from '@/utils/fonts'
