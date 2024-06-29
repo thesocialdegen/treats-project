@@ -43,7 +43,7 @@ const Navbar: FC<INavbar> = (props) => {
       <div className={`${className} flex items-center`}>
         <div className='mr-auto flex items-center gap-x-2 cursor-pointer' onClick={() => {router.push('/')}}>
           <ImageIcon src='/assets/logos/treats-logo.svg' alt='treats-logg' />
-          <span className='text-2xl text-orange_primary font-bold'>TREATS</span>
+          <span className='text-[40px] text-orange_primary font-bold'>TREATS</span>
         </div>
         <Menu className='w-[600px] bg-transparent flex justify-center' onClick={handleClick} selectedKeys={[current]} mode="horizontal" style={{ borderBottom: 'none' }}>
           <Menu.Item key="airdrop" className={`${bangers.className} ${current === ENavbarOption.AIRDROP ? 'text-light_orange_primary' : 'text-orange_secondary'} text-3xl font-normal`}>
