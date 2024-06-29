@@ -14,21 +14,21 @@ interface INavbar {
 const Navbar: FC<INavbar> = (props) => {
   const { className } = props;
   const router  = useRouter();
-  console.log('router --> ', router, window.location.pathname, ENavbarOption.CAMPAIGNS);
+  // console.log('router --> ', router, window.location.pathname, ENavbarOption.CAMPAIGNS);
   const [current, setCurrent] = useState('');
 
-  useEffect(() => {
-    if (window.location.pathname === `/${ENavbarOption.AIRDROP}`) {
-        setCurrent(ENavbarOption.AIRDROP);
-     } else if (window.location.pathname === `/${ENavbarOption.CAMPAIGNS}`) {
-        console.log('hello');
-        setCurrent(ENavbarOption.CAMPAIGNS);
-     } else if (window.location.pathname === `/${ENavbarOption.TOKENOMICS}`) {
-        setCurrent(ENavbarOption.TOKENOMICS);
-     } else {
-        setCurrent('');
-     }
-  }, [window.location.pathname]);
+  // useEffect(() => {
+  //   if (window.location.pathname === `/${ENavbarOption.AIRDROP}`) {
+  //       setCurrent(ENavbarOption.AIRDROP);
+  //    } else if (window.location.pathname === `/${ENavbarOption.CAMPAIGNS}`) {
+  //       console.log('hello');
+  //       setCurrent(ENavbarOption.CAMPAIGNS);
+  //    } else if (window.location.pathname === `/${ENavbarOption.TOKENOMICS}`) {
+  //       setCurrent(ENavbarOption.TOKENOMICS);
+  //    } else {
+  //       setCurrent('');
+  //    }
+  // }, [window.location.pathname]);
 
   const handleClick = (e: any) => {
     setCurrent(e.key);
