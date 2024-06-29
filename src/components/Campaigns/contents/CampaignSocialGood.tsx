@@ -45,7 +45,7 @@ const CampaignSocialGood = () => {
                         <p className={`${poppins.className} text-4xl w-[242px]`}>
                             make a difference!one $treat a time!
                         </p>
-                        <Button className={`${bangers.className} h-[45px] w-[164px] flex justify-center items-center text-[28px] bg-yellow_primary border-solid border-black border-[3px] rounded-[72px]`}>
+                        <Button className={`${bangers.className} h-[45px] w-[164px] flex justify-center items-center text-[28px] bg-yellow_primary border-solid border-black border-[3px] rounded-[72px] hover:text-black`}>
                             contirbute
                         </Button>
                         <ImageIcon src='/assets/icons/thunder-icon.svg' alt='thunder-icon' imgClassName='relative z-100 left-[290px] -top-[46px]'/>
@@ -67,7 +67,7 @@ const CampaignSocialGood = () => {
                         <p className={`${poppins.className} text-4xl w-[242px]`}>
                             one $treats= =one happy face/ one full stomach
                         </p>
-                        <Button className={`${bangers.className} h-[45px] w-[164px] flex justify-center items-center text-[28px] bg-yellow_primary border-solid border-black border-[3px] rounded-[72px]`}>
+                        <Button className={`${bangers.className} h-[45px] w-[164px] flex justify-center items-center text-[28px] bg-yellow_primary border-solid border-black border-[3px] rounded-[72px] hover:text-black`}>
                             contirbute
                         </Button>
                     </div>
@@ -88,7 +88,7 @@ const CampaignSocialGood = () => {
                         <p className={`${poppins.className} text-4xl w-[242px]`}>
                             goal: 10,000 $treats
                         </p>
-                        <Button className={`${bangers.className} h-[45px] w-[164px] flex justify-center items-center text-[28px] bg-yellow_primary border-solid border-black border-[3px] rounded-[72px]`}>
+                        <Button className={`${bangers.className} h-[45px] w-[164px] flex justify-center items-center text-[28px] bg-yellow_primary border-solid border-black border-[3px] rounded-[72px] hover:text-black`}>
                             contirbute
                         </Button>
                     </div>

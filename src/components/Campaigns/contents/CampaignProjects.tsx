@@ -27,7 +27,7 @@ const CampaignProjects = () => {
                     <p className={`${poppins.className} text-3xl w-[494px]`}>
                         Join a supportive, collaborative ecosystem with a greater purpose – permissionless, flexible, and dedicated to defining the future of Ethereum.
                     </p>
-                    <Button className={`${bangers.className} h-[67px] w-[365px] flex justify-center items-center text-[40px] bg-yellow_primary border-solid border-black border-[3px] rounded-[72px]`}>
+                    <Button className={`${bangers.className} h-[67px] w-[365px] flex justify-center items-center text-[40px] bg-yellow_primary border-solid border-black border-[3px] rounded-[72px] hover:text-black`}>
                         Sponsor a project
                     </Button>
                 </div>
@@ -35,7 +35,7 @@ const CampaignProjects = () => {
                     <p className={`${poppins.className} text-3xl w-[494px]`}>
                         Join a supportive, collaborative ecosystem with a greater purpose – permissionless, flexible, and dedicated to defining the future of Ethereum.
                     </p>
-                    <Button className={`${bangers.className} h-[67px] w-[345px] flex justify-center items-center text-[40px] bg-yellow_primary border-solid border-black border-[3px] rounded-[72px]`}>
+                    <Button className={`${bangers.className} h-[67px] w-[345px] flex justify-center items-center text-[40px] bg-yellow_primary border-solid border-black border-[3px] rounded-[72px] hover:text-black`}>
                         list your project
                     </Button>
                 </div>
