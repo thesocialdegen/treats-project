@@ -1,5 +1,13 @@
-// src/fonts.ts
-import { Bangers, Poppins } from "next/font/google";
+// Copyright 2019-2025 @polkassembly/polkassembly authors & contributors
+// This software may be modified and distributed under the terms
+// of the Apache-2.0 license. See the LICENSE file for details.
+import { Bangers, Poppins } from 'next/font/google';
 
-export const bangers = Bangers({ weight: '400', subsets: ["latin"] });
-export const poppins = Poppins({ weight: '400', subsets: ["latin"] });
+export const bangers = Bangers({
+	subsets: ['latin'],
+	weight: '400'
+});
+export const poppins = Poppins({
+	subsets: ['latin'],
+	weight: '400'
+});

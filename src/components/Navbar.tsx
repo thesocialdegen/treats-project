@@ -1,68 +1,102 @@
-"use client"
+// Copyright 2019-2025 @polkassembly/polkassembly authors & contributors
+// This software may be modified and distributed under the terms
+// of the Apache-2.0 license. See the LICENSE file for details.
+'use client';
 import { bangers } from '@/utils/fonts';
 import ImageIcon from '@/ui-components/ImageIcon';
 import { Menu, Button } from 'antd';
 import Link from 'next/link';
 import { FC, useEffect, useState } from 'react';
 import { useRouter } from 'next/navigation';
-import { usePathname } from 'next/navigation'
+import { usePathname } from 'next/navigation';
 import { ENavbarOption } from '@/types/enums';
 
 interface INavbar {
-  className?: string;
+	className?: string;
 }
 
 const Navbar: FC<INavbar> = (props) => {
-  const { className } = props;
-  const router  = useRouter();
-  const pathname = usePathname();
-  console.log('router --> ', router, pathname);
-  const [current, setCurrent] = useState('');
+	const { className } = props;
+	const router = useRouter();
+	const pathname = usePathname();
+	console.log('router --> ', router, pathname);
+	const [current, setCurrent] = useState('');
 
-  useEffect(() => {
-    if(window) {
-      if (pathname === `/${ENavbarOption.AIRDROP}`) {
-          setCurrent(ENavbarOption.AIRDROP);
-       } else if (pathname === `/${ENavbarOption.CAMPAIGNS}`) {
-          console.log('hello');
-          setCurrent(ENavbarOption.CAMPAIGNS);
-       } else if (pathname === `/${ENavbarOption.TOKENOMICS}`) {
-          setCurrent(ENavbarOption.TOKENOMICS);
-       } else {
-          setCurrent('');
-       }
-    }
-  }, [pathname]);
+	useEffect(() => {
+		if (window) {
+			if (pathname === `/${ENavbarOption.AIRDROP}`) {
+				setCurrent(ENavbarOption.AIRDROP);
+			} else if (pathname === `/${ENavbarOption.CAMPAIGNS}`) {
+				console.log('hello');
+				setCurrent(ENavbarOption.CAMPAIGNS);
+			} else if (pathname === `/${ENavbarOption.TOKENOMICS}`) {
+				setCurrent(ENavbarOption.TOKENOMICS);
+			} else {
+				setCurrent('');
+			}
+		}
+	}, [pathname]);
 
-  const handleClick = (e: any) => {
-    setCurrent(e.key);
-  };
+	const handleClick = (e: any) => {
+		setCurrent(e.key);
+	};
 
-  return (
-    <div className={`${bangers.className}`}>
-      <div className={`${className} flex items-center`}>
-        <div className='mr-auto flex items-center gap-x-2 cursor-pointer' onClick={() => {router.push('/')}}>
-          <ImageIcon src='/assets/logos/treats-logo.svg' alt='treats-logg' />
-          <span className='text-2xl text-orange_primary font-bold'>TREATS</span>
-        </div>
-        <Menu className='w-[600px] bg-transparent flex justify-center' onClick={handleClick} selectedKeys={[current]} mode="horizontal" style={{ borderBottom: 'none' }}>
-          <Menu.Item key="airdrop" className={`${bangers.className} ${current === ENavbarOption.AIRDROP ? 'text-light_orange_primary' : 'text-orange_secondary'} text-3xl font-normal`}>
-            <Link href="/airdrop">AIRDROP</Link>
-          </Menu.Item>
-          <Menu.Item key="campaigns" className={`${bangers.className} ${current === ENavbarOption.CAMPAIGNS ? 'text-light_orange_primary' : 'text-orange_secondary'} text-3xl font-normal`}>
-            <Link href="/campaigns">CAMPAIGNS</Link>
-          </Menu.Item>
-          <Menu.Item key="tokenomics" className={`${bangers.className} ${current === ENavbarOption.TOKENOMICS ? 'text-light_orange_primary' : 'text-orange_secondary'} text-3xl font-normal`}>
-            <Link href="/tokenomics">TOKENOMICS</Link>
-          </Menu.Item>
-        </Menu>
-        <div className='ml-auto flex items-center gap-x-3'>
-          <Button className={`${bangers.className} h-9 w-[141px] flex justify-center items-center bg-orange_primary rounded-3xl text-2xl text-white hover:bg-white hover:border-solid hover:border-orange_primary hover:text-orange_primary`}>BUY $TREATS</Button>
-          <Button className={`${bangers.className} h-9 w-[79px] flex justify-center items-center bg-orange_primary rounded-3xl text-2xl text-white hover:bg-white hover:border-solid hover:border-orange_primary hover:text-orange_primary`}>SWAP</Button>
-        </div>
-      </div>
-    </div>
-  );
+	return (
+		<div className={`${bangers.className}`}>
+			<div className={`${className} flex items-center`}>
+				<div
+					className='mr-auto flex cursor-pointer items-center gap-x-2'
+					onClick={() => {
+						router.push('/');
+					}}
+				>
+					<ImageIcon
+						src='/assets/logos/treats-logo.svg'
+						alt='treats-logg'
+					/>
+					<span className='text-2xl font-bold text-orange_primary'>TREATS</span>
+				</div>
+				<Menu
+					className='flex w-[600px] justify-center bg-transparent'
+					onClick={handleClick}
+					selectedKeys={[current]}
+					mode='horizontal'
+					style={{ borderBottom: 'none' }}
+				>
+					<Menu.Item
+						key='airdrop'
+						className={`${bangers.className} ${current === ENavbarOption.AIRDROP ? 'text-light_orange_primary' : 'text-orange_secondary'} text-3xl font-normal`}
+					>
+						<Link href='/airdrop'>AIRDROP</Link>
+					</Menu.Item>
+					<Menu.Item
+						key='campaigns'
+						className={`${bangers.className} ${current === ENavbarOption.CAMPAIGNS ? 'text-light_orange_primary' : 'text-orange_secondary'} text-3xl font-normal`}
+					>
+						<Link href='/campaigns'>CAMPAIGNS</Link>
+					</Menu.Item>
+					<Menu.Item
+						key='tokenomics'
+						className={`${bangers.className} ${current === ENavbarOption.TOKENOMICS ? 'text-light_orange_primary' : 'text-orange_secondary'} text-3xl font-normal`}
+					>
+						<Link href='/tokenomics'>TOKENOMICS</Link>
+					</Menu.Item>
+				</Menu>
+				<div className='ml-auto flex items-center gap-x-3'>
+					<Button
+						className={`${bangers.className} flex h-9 w-[141px] items-center justify-center rounded-3xl bg-orange_primary text-2xl text-white hover:border-solid hover:border-orange_primary hover:bg-white hover:text-orange_primary`}
+					>
+						BUY $TREATS
+					</Button>
+					<Button
+						className={`${bangers.className} flex h-9 w-[79px] items-center justify-center rounded-3xl bg-orange_primary text-2xl text-white hover:border-solid hover:border-orange_primary hover:bg-white hover:text-orange_primary`}
+					>
+						SWAP
+					</Button>
+				</div>
+			</div>
+		</div>
+	);
 };
 
 export default Navbar;
