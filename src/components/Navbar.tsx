@@ -24,15 +24,15 @@ const Navbar: FC<INavbar> = (props) => {
 
 	useEffect(() => {
 		if (window) {
-			if (pathname === `/${ENavbarOption.AIRDROP}`) {
+			if (pathname.includes(ENavbarOption.AIRDROP)) {
 				setCurrent(ENavbarOption.AIRDROP);
-			} else if (pathname === `/${ENavbarOption.CAMPAIGNS}`) {
+			} else if (pathname.includes(ENavbarOption.CAMPAIGNS)) {
 				console.log('hello');
 				setCurrent(ENavbarOption.CAMPAIGNS);
-			} else if (pathname === `/${ENavbarOption.TOKENOMICS}`) {
+			} else if (pathname.includes(ENavbarOption.TOKENOMICS)) {
 				setCurrent(ENavbarOption.TOKENOMICS);
 			} else {
-				setCurrent('');
+				setCurrent('/');
 			}
 		}
 	}, [pathname]);
@@ -54,7 +54,7 @@ const Navbar: FC<INavbar> = (props) => {
 						src='/assets/logos/treats-logo.svg'
 						alt='treats-logg'
 					/>
-					<span className='text-2xl font-bold text-orange_primary'>TREATS</span>
+					<span className='text-[40px] font-bold text-orange_primary'>TREATS</span>
 				</div>
 				<Menu
 					className='flex w-[600px] justify-center bg-transparent'

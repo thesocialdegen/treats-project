@@ -21,6 +21,8 @@ module.exports = {
 				sky_blue_secondary: 'var(--sky_blue_secondary)',
 				yellow_primary: 'var(--yellow_primary)',
 				green_primary: 'var(--green_primary)',
+				pink_primary: 'var(--pink_primary)',
+				red_primary: 'var(--red_primary)'
 			},
 			screens: {
 				xs: '320px'

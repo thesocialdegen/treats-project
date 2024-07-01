@@ -4,9 +4,11 @@
 import ImageIcon from '@/ui-components/ImageIcon';
 import { bangers, poppins } from '@/utils/fonts';
 import { Button } from 'antd';
+import { useRouter } from 'next/navigation';
 import React from 'react';
 
 const CampaignProjects = () => {
+	const router = useRouter();
 	return (
 		<section>
 			<div
@@ -31,6 +33,9 @@ const CampaignProjects = () => {
 						</p>
 						<Button
 							className={`${bangers.className} flex h-[67px] w-[365px] items-center justify-center rounded-[72px] border-[3px] border-solid border-black bg-yellow_primary text-[40px] hover:text-black`}
+							onClick={() => {
+								router.push('campaigns/sponsor');
+							}}
 						>
 							Sponsor a project
 						</Button>
