@@ -18,11 +18,11 @@ const CampaignSponsor = () => {
 				borderRadius: '30px'
 			}}
 		>
-			<div className='-mt-[176px] flex max-h-[450px] justify-center'>
+			<div className='-mt-[136px] flex max-h-[500px] justify-center'>
 				<ImageIcon
 					src='/assets/GIFs/project-sponsor.gif'
 					alt='sponsor-gif'
-					imgClassName='h-[600px] w-[600px] scale-[60%]'
+					imgClassName='h-[600px] w-[600px] scale-[80%]'
 				/>
 			</div>
 			<div className='grid grid-cols-1 gap-x-2 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4'>
