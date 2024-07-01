@@ -26,7 +26,7 @@ const SponsorCard = () => {
 						imgClassName='h-[103px] w-[103px]'
 					/>
 					<div className='flex flex-col gap-y-4'>
-						<p className='bg-pink_primary flex items-center justify-center rounded-[72px] px-3 py-1'>500 $Treats</p>
+						<p className='flex items-center justify-center rounded-[72px] bg-[#FFD7F9] px-3 py-1'>500 $Treats</p>
 						<Progress
 							type='circle'
 							percent={75}
