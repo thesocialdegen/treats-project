@@ -10,7 +10,7 @@ const sponsors = Array.from({ length: 20 }, (_, index) => index); // Create an a
 const CampaignSponsor = () => {
 	return (
 		<section
-			className='flex max-h-[2439px] w-full flex-col px-4 py-6'
+			className='flex max-h-[3000px] w-full flex-col px-4 py-6'
 			style={{
 				backgroundImage: 'url(/assets/icons/sponsor-bg.svg)',
 				backgroundPosition: 'center',
@@ -25,7 +25,7 @@ const CampaignSponsor = () => {
 					imgClassName='h-[600px] w-[600px] scale-[80%]'
 				/>
 			</div>
-			<div className='grid grid-cols-1 gap-x-2 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4'>
+			<div className='grid grid-cols-1 gap-x-2 gap-y-6 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4'>
 				{sponsors.map((_, index) => (
 					<SponsorCard key={index} />
 				))}
