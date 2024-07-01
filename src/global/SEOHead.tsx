@@ -33,7 +33,7 @@ const imageMapper: any = {
 
 const SEOHead = ({ title, desc }: Props) => {
 	// need these consts because : https://github.com/vercel/next.js/discussions/38256
-	const descString = sanitizeMarkdown(desc) || `Polkassembly, discussion platform governance`;
+	const descString = sanitizeMarkdown(desc) || 'Polkassembly, discussion platform governance';
 	const titleString = `${title} | Polkassembly`;
 	const image = imageMapper?.large || 'polkassembly.png';
 	return (
@@ -82,7 +82,7 @@ const SEOHead = ({ title, desc }: Props) => {
 			/>
 			<meta
 				property='og:image'
-				content={``}
+				content={''}
 			/>
 			<meta
 				property='og:image:width'
