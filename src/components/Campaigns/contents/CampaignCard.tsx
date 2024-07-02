@@ -19,7 +19,7 @@ interface ICampaignCard {
 const CampaignCard: FC<ICampaignCard> = (props) => {
 	const { title, treats, progress, description, buttonText, iconSrc, iconAlt } = props;
 	return (
-		<div className='flex flex-col gap-y-4'>
+		<div className='-mt-10 flex flex-col gap-y-3'>
 			<div className='flex items-center justify-center gap-x-4'>
 				<ImageIcon
 					src={iconSrc}
@@ -30,7 +30,7 @@ const CampaignCard: FC<ICampaignCard> = (props) => {
 					<Progress percent={progress} />
 				</div>
 			</div>
-			<h1 className='mt-4 w-[326px] text-6xl tracking-wider'>{title}</h1>
+			<h1 className='mt-4 w-[336px] text-6xl tracking-wider'>{title}</h1>
 			<p className={`${poppins.className} w-[242px] text-4xl`}>{description}</p>
 			<Button
 				className={`${bangers.className} flex h-[45px] w-[164px] items-center justify-center rounded-[72px] border-[3px] border-solid border-black bg-yellow_primary text-[28px] hover:text-black`}
