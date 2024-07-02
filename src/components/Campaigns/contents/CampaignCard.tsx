@@ -19,7 +19,7 @@ interface ICampaignCard {
 const CampaignCard: FC<ICampaignCard> = (props) => {
 	const { title, treats, progress, description, buttonText, iconSrc, iconAlt } = props;
 	return (
-		<div className='-mt-10 flex h-[490px] flex-col gap-y-3'>
+		<div className='-mt-10 flex h-[490px] flex-col gap-y-5'>
 			<div className='flex items-center justify-center gap-x-4'>
 				<ImageIcon
 					src={iconSrc}
