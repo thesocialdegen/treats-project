@@ -4,13 +4,16 @@
 import './globals.css';
 import { bangers } from '../utils/fonts';
 import Navbar from '@/components/Navbar';
+import { Providers } from '@/redux/provider';
 
 export default function RootLayout({ children }: { children: React.ReactNode }) {
 	return (
 		<html>
 			<body className={bangers.className}>
-				<Navbar className={'px-6 py-4'} />
-				{children}
+				<Providers>
+					<Navbar className={'px-6 py-4'} />
+					{children}
+				</Providers>
 			</body>
 		</html>
 	);

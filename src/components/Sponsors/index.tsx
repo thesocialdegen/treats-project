@@ -5,7 +5,7 @@ import ImageIcon from '@/ui-components/ImageIcon';
 import React from 'react';
 import SponsorCard from './SponsorCard';
 
-const sponsors = Array.from({ length: 20 }, (_, index) => index); // Create an array with 20 items
+const sponsors = Array.from({ length: 20 }, (_, index) => index);
 
 const CampaignSponsor = () => {
 	return (

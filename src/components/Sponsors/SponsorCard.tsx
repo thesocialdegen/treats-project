@@ -26,11 +26,11 @@ const SponsorCard = () => {
 						imgClassName='h-[103px] w-[103px]'
 					/>
 					<div className='flex flex-col gap-y-4'>
-						<p className='flex items-center justify-center rounded-[72px] bg-[#FFD7F9] px-3 py-1'>500 $Treats</p>
+						<p className='flex items-center justify-center rounded-[72px] bg-[#FFD7F9] px-3 py-1'>ASK: 500 $Treats</p>
 						<Progress
 							type='circle'
 							percent={75}
-							size={70}
+							size={63}
 							className='ml-auto'
 							showInfo={true}
 							strokeColor='var(--red_primary)'
@@ -41,9 +41,9 @@ const SponsorCard = () => {
 				<h1 className='text-[40px] tracking-wider text-black'>Project Name</h1>
 				<p className={`${poppins.className} text-xl`}>Join a supportive, collaborative ecosystem with a greater purpose – permissionless, flexible, and...</p>
 				<Button
-					className={`${bangers.className} flex h-[37px] w-[107px] items-center justify-center rounded-[72px] border-[2px] border-solid border-black bg-yellow_primary text-xl hover:text-black`}
+					className={`${bangers.className} flex h-[37px] w-[61px] items-center justify-center rounded-[72px] border-[2px] border-solid border-black bg-yellow_primary text-xl hover:text-black`}
 				>
-					Sponsor
+					Tip
 				</Button>
 			</div>
 		</article>

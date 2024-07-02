@@ -6,9 +6,15 @@ import { Button } from 'antd';
 import React from 'react';
 import CampaignSocialGood from './contents/CampaignSocialGood';
 import CampaignProjects from './contents/CampaignProjects';
+// import { useDispatch } from 'react-redux';
+// import { campaignsActions } from '@/redux/campaigns';
+// import { useCampaignsSelector } from '@/redux/selectors';
 
 const CampaignsPage = () => {
+	// const { error } = useCampaignsSelector();
+	// const dispatch = useDispatch();
 	const scrollToSocialGood = () => {
+		// dispatch(campaignsActions.setError('true'));
 		const element = document.getElementById('social-good');
 		if (element) {
 			element.scrollIntoView({ behavior: 'smooth' });
@@ -27,6 +33,7 @@ const CampaignsPage = () => {
 			element.scrollIntoView({ behavior: 'smooth' });
 		}
 	};
+	// console.log('error is comming --> ', error);
 
 	return (
 		<section className='mx-auto mb-2 flex h-full w-full flex-col items-center justify-center gap-y-6 overflow-x-hidden px-2'>
