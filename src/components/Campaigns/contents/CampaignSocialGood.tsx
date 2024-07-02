@@ -29,7 +29,7 @@ const CampaignSocialGood = () => {
 				</div>
 			</div>
 			<article className='relative -top-[650px]'>
-				<div className='flex justify-center gap-x-[120px]'>
+				<div className='flex justify-center gap-x-[90px]'>
 					<CampaignCard
 						title='Plantation drive'
 						treats={100}

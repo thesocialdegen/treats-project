@@ -19,29 +19,37 @@ interface ICampaignCard {
 const CampaignCard: FC<ICampaignCard> = (props) => {
 	const { title, treats, progress, description, buttonText, iconSrc, iconAlt } = props;
 	return (
-		<div className='-mt-10 flex flex-col gap-y-3'>
+		<div className='-mt-10 flex h-[490px] flex-col gap-y-3'>
 			<div className='flex items-center justify-center gap-x-4'>
 				<ImageIcon
 					src={iconSrc}
 					alt={iconAlt}
 				/>
 				<div>
-					<h1 className='text-[40px]'>{treats}/400 $Treats</h1>
+					<h1 className='flex items-center gap-x-2 text-[40px]'>
+						{treats}/400{' '}
+						<ImageIcon
+							src='/assets/icons/dollar-icon.svg'
+							alt='dollar-icon'
+							imgClassName='mt-1.5'
+						/>{' '}
+						<span className='-ml-4'>Treats</span>
+					</h1>
 					<Progress percent={progress} />
 				</div>
 			</div>
-			<h1 className='mt-4 w-[336px] text-6xl tracking-wider'>{title}</h1>
-			<p className={`${poppins.className} w-[242px] text-4xl`}>{description}</p>
+			<h1 className='mt-4 w-[366px] text-6xl tracking-wider'>{title}</h1>
+			<p className={`${poppins.className} w-[366px] text-4xl`}>{description}</p>
 			<Button
-				className={`${bangers.className} flex h-[45px] w-[164px] items-center justify-center rounded-[72px] border-[3px] border-solid border-black bg-yellow_primary text-[28px] hover:text-black`}
+				className={`${bangers.className} mt-auto flex h-[45px] w-[164px] items-center justify-center rounded-[72px] border-[3px] border-solid border-black bg-yellow_primary text-[28px] hover:text-black`}
 			>
 				{buttonText}
 			</Button>
-			<ImageIcon
+			{/* <ImageIcon
 				src='/assets/icons/thunder-icon.svg'
 				alt='thunder-icon'
 				imgClassName='relative z-100 left-[290px] -top-[46px]'
-			/>
+			/> */}
 		</div>
 	);
 };
