@@ -22,6 +22,7 @@ module.exports = {
 				yellow_primary: 'var(--yellow_primary)',
 				green_primary: 'var(--green_primary)',
 				pink_primary: 'var(--pink_primary)',
+				pink_secondary: 'var(--pink_secondary)',
 				red_primary: 'var(--red_primary)'
 			},
 			screens: {
