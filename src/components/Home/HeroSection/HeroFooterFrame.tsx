@@ -1,6 +1,7 @@
 // Copyright 2019-2025 @polkassembly/polkassembly authors & contributors
 // This software may be modified and distributed under the terms
 // of the Apache-2.0 license. See the LICENSE file for details.
+import { ESocials } from '@/types/enums';
 import ImageIcon from '@/ui-components/ImageIcon';
 import { Button } from 'antd';
 import { useRouter } from 'next/navigation';
@@ -48,18 +49,30 @@ const HeroFooterFrame = () => {
 					imgClassName='top-[135px] ml-[256px] absolute'
 				/>
 				<div className='flex justify-center'>
-					<div className='relative -top-[200px]'>
-						<div className='flex'>
+					<div className='relative -top-[180px]'>
+						<div className='flex gap-x-4'>
 							<Button
-								className='m-0 flex h-[36px] w-[36px] items-center justify-center rounded-sm bg-sky_blue_primary p-0'
+								className='m-0 flex h-[36px] w-[36px] items-center justify-center rounded-[9px] border-none bg-sky_blue_primary p-0'
 								onClick={() => {
-									router.push('https://x.com/DegenTreats');
+									router.push(ESocials.TWITTER);
 								}}
 							>
 								<ImageIcon
 									src='/assets/icons/twitter-icon.svg'
 									alt='twitter-icon'
 									imgClassName='mt-1.5'
+								/>
+							</Button>
+							<Button
+								className='m-0 flex h-[36px] w-[36px] items-center justify-center rounded-[9px] border-none bg-sky_blue_primary p-0'
+								onClick={() => {
+									router.push(ESocials.TELEGRAM);
+								}}
+							>
+								<ImageIcon
+									src='/assets/icons/telegram-icon.svg'
+									alt='twitter-icon'
+									imgClassName='-ml-1 mt-1.5'
 								/>
 							</Button>
 						</div>

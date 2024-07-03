@@ -6,3 +6,7 @@ export enum ENavbarOption {
 	CAMPAIGNS = 'campaigns',
 	TOKENOMICS = 'tokenomics'
 }
+export enum ESocials {
+	TELEGRAM = 'https://t.me/tipwithtreats',
+	TWITTER = 'https://x.com/DegenTreats'
+}
