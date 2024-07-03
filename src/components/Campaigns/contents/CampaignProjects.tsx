@@ -32,12 +32,12 @@ const CampaignProjects = () => {
 							Join a supportive, collaborative ecosystem with a greater purpose – permissionless, flexible, and dedicated to defining the future of Ethereum.
 						</p>
 						<Button
-							className={`${bangers.className} flex h-[67px] w-[365px] items-center justify-center rounded-[72px] border-[3px] border-solid border-black bg-yellow_primary text-[40px] hover:text-black`}
+							className={`${bangers.className} flex h-[67px] w-[274px] items-center justify-center rounded-[72px] border-[3px] border-solid border-black bg-yellow_primary text-[40px] hover:text-black`}
 							onClick={() => {
 								router.push('campaigns/sponsor');
 							}}
 						>
-							Sponsor a project
+							Tip a project
 						</Button>
 					</div>
 					<div className='flex flex-col gap-y-4'>

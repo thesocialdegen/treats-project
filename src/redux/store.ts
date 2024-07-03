@@ -3,12 +3,14 @@
 // of the Apache-2.0 license. See the LICENSE file for details.
 import { configureStore } from '@reduxjs/toolkit';
 import { campaignsStore } from './campaigns';
+import { modalStore } from './modal';
 
 export const store = configureStore({
 	devTools: process.env.NODE_ENV !== 'production',
 	middleware: (getDefaultMiddleware) => getDefaultMiddleware({}),
 	reducer: {
-		[campaignsStore.name]: campaignsStore.reducer
+		[campaignsStore.name]: campaignsStore.reducer,
+		[modalStore.name]: modalStore.reducer
 	}
 });
 export type RootState = ReturnType<typeof store.getState>;

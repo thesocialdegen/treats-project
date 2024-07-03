@@ -5,7 +5,12 @@
 import { useSelector } from 'react-redux';
 import { RootState } from './store';
 import { ICampaignsStore } from './campaigns/@types';
+import { IModalStore } from './modal/@types';
 
 export const useCampaignsSelector = () => {
 	return useSelector<RootState, ICampaignsStore>((state) => state.campaigns);
+};
+
+export const useModalSelector = () => {
+	return useSelector<RootState, IModalStore>((state) => state.modal);
 };

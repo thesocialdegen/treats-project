@@ -73,3 +73,7 @@ body {
  :where(.css-dev-only-do-not-override-m4timi).ant-progress .ant-progress-text {
     display: none !important
  }
+
+ :where(.css-dev-only-do-not-override-m4timi).ant-modal .ant-modal-content {
+    border-radius: 30px !important;
+ }

@@ -19,7 +19,6 @@ const Navbar: FC<INavbar> = (props) => {
 	const { className } = props;
 	const router = useRouter();
 	const pathname = usePathname();
-	console.log('router --> ', router, pathname);
 	const [current, setCurrent] = useState('');
 
 	useEffect(() => {
@@ -27,7 +26,6 @@ const Navbar: FC<INavbar> = (props) => {
 			if (pathname.includes(ENavbarOption.AIRDROP)) {
 				setCurrent(ENavbarOption.AIRDROP);
 			} else if (pathname.includes(ENavbarOption.CAMPAIGNS)) {
-				console.log('hello');
 				setCurrent(ENavbarOption.CAMPAIGNS);
 			} else if (pathname.includes(ENavbarOption.TOKENOMICS)) {
 				setCurrent(ENavbarOption.TOKENOMICS);

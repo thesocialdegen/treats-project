@@ -3,13 +3,18 @@
 // of the Apache-2.0 license. See the LICENSE file for details.
 'use client';
 
+import { modalActions } from '@/redux/modal';
+import { EContentType, EFooterType, ETitleType } from '@/redux/modal/@types';
 import ImageIcon from '@/ui-components/ImageIcon';
 import { bangers, poppins } from '@/utils/fonts';
 import { avatarArray } from '@/utils/profileImages';
 import { Button, Progress } from 'antd';
 import React from 'react';
+import { useDispatch } from 'react-redux';
 
 const SponsorCard = () => {
+	const dispatch = useDispatch();
+
 	return (
 		<article className='flex justify-center gap-x-4'>
 			<div
@@ -42,6 +47,17 @@ const SponsorCard = () => {
 				<p className={`${poppins.className} text-xl`}>Join a supportive, collaborative ecosystem with a greater purpose – permissionless, flexible, and...</p>
 				<Button
 					className={`${bangers.className} flex h-[37px] w-[61px] items-center justify-center rounded-[72px] border-[2px] border-solid border-black bg-yellow_primary text-xl hover:text-black`}
+					onClick={() => {
+						console.log('hello');
+						dispatch(
+							modalActions.setModal({
+								contentType: EContentType.SPONSOR_DETAILS,
+								footerType: EFooterType.SPONSOR_DETAILS,
+								open: true,
+								titleType: ETitleType.NONE
+							})
+						);
+					}}
 				>
 					Tip
 				</Button>
