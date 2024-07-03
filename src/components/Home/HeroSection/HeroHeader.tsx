@@ -5,7 +5,7 @@ import React from 'react';
 
 const HeroHeader = () => {
 	return (
-		<article className='flex max-w-[2000px] justify-center'>
+		<article className='flex w-[1420px] justify-center'>
 			<svg
 				xmlns='http://www.w3.org/2000/svg'
 				height='795'
