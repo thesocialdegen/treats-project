@@ -9,8 +9,8 @@ import React from 'react';
 const HeroFooterFrame = () => {
 	const router = useRouter();
 	return (
-		<article className='mt-[535px] flex w-full justify-center'>
-			<div className='relative'>
+		<article className='mt-[535px] flex justify-center'>
+			<div className='relative w-[1420px]'>
 				<svg
 					xmlns='http://www.w3.org/2000/svg'
 					height='671'
