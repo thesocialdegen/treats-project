@@ -9,7 +9,7 @@ import React from 'react';
 
 const SponsorModalContent = () => {
 	return (
-		<article className={`${bangers.className} -mt-[54px] h-[400px] w-[613px]`}>
+		<article className={`${bangers.className} -mt-[54px] h-[400px] w-[553px]`}>
 			<div className='flex items-center justify-between'>
 				<ImageIcon
 					src={avatarArray[0]?.url || 'https://i.ibb.co/1R4P6rj/profile-icon-1.png'}
