@@ -9,7 +9,7 @@ import ModalContent from './Content';
 import ModalTitle from './Title';
 import ModalFooter from './Footer';
 import ImageIcon from '../ImageIcon';
-import { getTitleWrapperClassName } from './utils';
+import { getCloseButtonClassName, getTitleWrapperClassName } from './utils';
 import { modalActions } from '@/redux/modal';
 import { useModalSelector } from '@/redux/selectors';
 
@@ -40,7 +40,7 @@ const CustomModal: FC<ICustomModalProps> = () => {
 					</h3>
 					<button
 						onClick={onCancel}
-						className='flex h-[10px] w-[10px] cursor-pointer items-center justify-center border-none bg-transparent text-[#66A5FF] outline-none'
+						className={getCloseButtonClassName(titleType, footerType, contentType)}
 						onMouseLeave={handleMouseLeave}
 						onMouseEnter={handleMouseEnter}
 					>

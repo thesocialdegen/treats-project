@@ -11,3 +11,11 @@ export const getTitleWrapperClassName = (titleType?: ETitleType, footerType?: EF
 
 	return 'flex items-center bg-app_dark_background justify-between gap-x-2 p-6 border-0 border-b border-solid border-dark_grey_primary rounded-t-xl';
 };
+
+export const getCloseButtonClassName = (titleType?: ETitleType, footerType?: EFooterType, contentType?: EContentType) => {
+	if (contentType === EContentType.SPONSOR_DETAILS) {
+		return 'hidden';
+	}
+
+	return 'flex h-[10px] w-[10px] cursor-pointer items-center justify-center border-none bg-transparent text-[#66A5FF] outline-none';
+};
