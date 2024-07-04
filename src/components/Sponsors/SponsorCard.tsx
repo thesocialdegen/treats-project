@@ -26,7 +26,7 @@ const SponsorCard = () => {
 			>
 				<div className='flex items-center justify-between'>
 					<ImageIcon
-						src={avatarArray[0]?.url || 'https://i.ibb.co/1R4P6rj/profile-icon-1.png'}
+						src={avatarArray[2]?.url || 'https://i.ibb.co/1R4P6rj/profile-icon-1.png'}
 						alt='profile-image'
 						imgClassName='h-[103px] w-[103px]'
 					/>
@@ -64,16 +64,6 @@ const SponsorCard = () => {
 				</p>
 				<Button
 					className={`${bangers.className} flex h-[37px] w-[61px] items-center justify-center rounded-[72px] border-[2px] border-solid border-black bg-yellow_primary text-xl hover:text-black`}
-					onClick={() => {
-						dispatch(
-							modalActions.setModal({
-								contentType: EContentType.SPONSOR_DETAILS,
-								footerType: EFooterType.SPONSOR_DETAILS,
-								open: true,
-								titleType: ETitleType.NONE
-							})
-						);
-					}}
 				>
 					Tip
 				</Button>
