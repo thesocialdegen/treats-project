@@ -22,7 +22,7 @@ const CampaignProjects = () => {
 			></div>
 			<div className='relative -top-[665px]'>
 				<div className={'flex items-center justify-center gap-x-[60px]'}>
-					<h1 className='text-7xl capitalize'>support a project or smth</h1>
+					<h1 className='text-7xl capitalize tracking-wider'>support a project or smth</h1>
 				</div>
 			</div>
 			<article className='relative -top-[520px]'>
