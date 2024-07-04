@@ -40,7 +40,11 @@ const CustomModal: FC<ICustomModalProps> = () => {
 					</h3>
 					<button
 						onClick={onCancel}
-						className={getCloseButtonClassName(titleType, footerType, contentType)}
+						className={
+							getCloseButtonClassName(titleType, footerType, contentType)
+								? 'hidden'
+								: 'flex h-[10px] w-[10px] cursor-pointer items-center justify-center border-none bg-transparent text-[#66A5FF] outline-none'
+						}
 						onMouseLeave={handleMouseLeave}
 						onMouseEnter={handleMouseEnter}
 					>

@@ -13,9 +13,5 @@ export const getTitleWrapperClassName = (titleType?: ETitleType, footerType?: EF
 };
 
 export const getCloseButtonClassName = (titleType?: ETitleType, footerType?: EFooterType, contentType?: EContentType) => {
-	if (contentType === EContentType.SPONSOR_DETAILS) {
-		return 'hidden';
-	}
-
-	return 'flex h-[10px] w-[10px] cursor-pointer items-center justify-center border-none bg-transparent text-[#66A5FF] outline-none';
+	return contentType === EContentType.SPONSOR_DETAILS;
 };
