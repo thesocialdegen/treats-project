@@ -50,19 +50,19 @@ const CampaignsPage = () => {
 				<div className='relative -top-[120px]'>
 					<div className={'flex items-center justify-center gap-x-[60px]'}>
 						<Button
-							className={`${bangers.className} flex h-[77px] w-[315px] items-center justify-center rounded-[72px] border-none bg-yellow_primary px-10 py-3 text-5xl text-black`}
+							className={`${bangers.className} flex h-[77px] w-[315px] items-center justify-center rounded-[72px] border-yellow_primary bg-yellow_primary px-10 py-3 text-5xl text-black hover:border-4  hover:border-black hover:drop-shadow-xl`}
 							onClick={scrollToSocialGood}
 						>
 							Social good
 						</Button>
 						<Button
-							className={`${bangers.className} flex h-[77px] w-[468px] items-center justify-center rounded-[72px] border-none bg-sky_blue_secondary px-10 py-3 text-5xl text-black`}
+							className={`${bangers.className} flex h-[77px] w-[468px] items-center justify-center rounded-[72px] border-sky_blue_secondary bg-sky_blue_secondary px-10 py-3 text-5xl text-black hover:border-4 hover:border-black hover:drop-shadow-xl`}
 							onClick={scrollToProjects}
 						>
 							Dev project/grants
 						</Button>
 						<Button
-							className={`${bangers.className} flex h-[77px] w-[265px] items-center justify-center rounded-[72px] border-none bg-green_primary px-10 py-3 text-5xl text-black`}
+							className={`${bangers.className} flex h-[77px] w-[265px] items-center justify-center rounded-[72px] border-green_primary bg-green_primary px-10 py-3 text-5xl text-black hover:border-4 hover:border-black hover:drop-shadow-xl`}
 							onClick={scrollToUpcoming}
 						>
 							upcoming
