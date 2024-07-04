@@ -44,11 +44,27 @@ const SponsorCard = () => {
 					</div>
 				</div>
 				<h1 className='text-[40px] tracking-wider text-black'>Project Name</h1>
-				<p className={`${poppins.className} text-xl`}>Join a supportive, collaborative ecosystem with a greater purpose – permissionless, flexible, and...</p>
+				<p className={`${poppins.className} text-xl`}>
+					Join a supportive, collaborative ecosystem with a greater purpose – permissionless, flexible, and...
+					<span
+						className='ml-2 cursor-pointer text-sm text-sky-500'
+						onClick={() => {
+							dispatch(
+								modalActions.setModal({
+									contentType: EContentType.SPONSOR_DETAILS,
+									footerType: EFooterType.SPONSOR_DETAILS,
+									open: true,
+									titleType: ETitleType.NONE
+								})
+							);
+						}}
+					>
+						see more
+					</span>
+				</p>
 				<Button
 					className={`${bangers.className} flex h-[37px] w-[61px] items-center justify-center rounded-[72px] border-[2px] border-solid border-black bg-yellow_primary text-xl hover:text-black`}
 					onClick={() => {
-						console.log('hello');
 						dispatch(
 							modalActions.setModal({
 								contentType: EContentType.SPONSOR_DETAILS,
