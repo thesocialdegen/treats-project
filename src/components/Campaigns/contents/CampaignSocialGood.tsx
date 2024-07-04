@@ -22,7 +22,7 @@ const CampaignSocialGood = () => {
 				<div className='flex w-[1136px] items-center justify-between gap-x-[60px]'>
 					<h1 className='text-8xl tracking-wider'>SOCIAL GOOD</h1>
 					<Button
-						className={`${bangers.className} flex h-[77px] w-[430px] items-center justify-center rounded-[72px] border-sky_blue_secondary bg-sky_blue_secondary px-10 py-3 text-5xl text-black hover:border-4 hover:border-black hover:shadow-lg`}
+						className={`${bangers.className} flex h-[77px] w-[430px] items-center justify-center rounded-[72px] border-4 border-black bg-sky_blue_secondary px-10 py-3 text-5xl text-black hover:shadow-lg`}
 					>
 						Start an initiative
 					</Button>
