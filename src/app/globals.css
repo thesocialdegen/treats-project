@@ -78,3 +78,7 @@ body {
  :where(.css-dev-only-do-not-override-m4timi).ant-modal .ant-modal-content {
     border-radius: 30px !important;
  }
+
+ .btn-container :hover {
+    border: 5px solid black !important;
+ }
