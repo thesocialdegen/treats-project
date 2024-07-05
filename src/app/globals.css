@@ -86,3 +86,7 @@ body {
  .btn-container :hover {
     border: 5px solid black !important;
  }
+
+ :where(.css-dev-only-do-not-override-m4timi).ant-menu-light.ant-menu-horizontal >.ant-menu-item-selected::after, :where(.css-dev-only-do-not-override-m4timi).ant-menu-light>.ant-menu.ant-menu-horizontal >.ant-menu-item-selected::after, :where(.css-dev-only-do-not-override-m4timi).ant-menu-light.ant-menu-horizontal >.ant-menu-submenu-selected::after, :where(.css-dev-only-do-not-override-m4timi).ant-menu-light>.ant-menu.ant-menu-horizontal >.ant-menu-submenu-selected::after {
+    border: none !important;
+ }
