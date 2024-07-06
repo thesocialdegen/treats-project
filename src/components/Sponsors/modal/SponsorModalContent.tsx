@@ -1,13 +1,17 @@
 // Copyright 2019-2025 @polkassembly/polkassembly authors & contributors
 // This software may be modified and distributed under the terms
 // of the Apache-2.0 license. See the LICENSE file for details.
+import { ESocials } from '@/types/enums';
 import ImageIcon from '@/ui-components/ImageIcon';
 import { bangers, poppins } from '@/utils/fonts';
 import { avatarArray } from '@/utils/profileImages';
-import { Progress } from 'antd';
+import { Button, Progress } from 'antd';
+import { useRouter } from 'next/navigation';
 import React from 'react';
 
 const SponsorModalContent = () => {
+	const router = useRouter();
+
 	return (
 		<article className={`${bangers.className} -mt-[54px] h-[400px] w-[553px]`}>
 			<div className='flex items-center justify-between'>
@@ -16,20 +20,59 @@ const SponsorModalContent = () => {
 					alt='profile-image'
 					imgClassName='h-[103px] w-[103px]'
 				/>
-				<div className='flex flex-col gap-y-4'>
-					<p className='flex items-center justify-center rounded-[72px] bg-[#FFD7F9] px-3 py-1 text-base'>ASK: 500 $Treats</p>
-					<Progress
-						type='circle'
-						percent={75}
-						size={63}
-						className='ml-auto'
-						showInfo={true}
-						strokeColor='var(--pink_secondary)'
-						strokeWidth={12}
+				<div className='flex items-center justify-center gap-x-4'>
+					<ImageIcon
+						src='/assets/icons/treats-mini-icon.svg'
+						alt={'treats-icon'}
 					/>
+					<div className='-mt-4 flex flex-col'>
+						<h1 className='flex items-center gap-x-2 text-[40px]'>
+							100/400
+							<ImageIcon
+								src='/assets/icons/dollar-icon.svg'
+								alt='dollar-icon'
+								imgClassName='mt-[15px]'
+							/>{' '}
+							<span className='-ml-4'>Treats</span>
+						</h1>
+						<Progress
+							percent={75}
+							className='-mt-4'
+						/>
+					</div>
 				</div>
 			</div>
-			<h1 className='text-[40px] tracking-wider text-black'>Project Name</h1>
+			<div className='flex items-center justify-between'>
+				<h1 className='text-[40px] tracking-wider text-black'>Project Name</h1>
+				<div className='flex justify-center'>
+					<div className='flex gap-x-4'>
+						<Button
+							className='m-0 flex h-[36px] w-[36px] items-center justify-center rounded-[9px] border-none bg-sky_blue_primary p-0'
+							onClick={() => {
+								router.push(ESocials.TWITTER);
+							}}
+						>
+							<ImageIcon
+								src='/assets/icons/twitter-icon.svg'
+								alt='twitter-icon'
+								imgClassName='mt-1.5'
+							/>
+						</Button>
+						<Button
+							className='m-0 flex h-[36px] w-[36px] items-center justify-center rounded-[9px] border-none bg-sky_blue_primary p-0'
+							onClick={() => {
+								router.push(ESocials.TELEGRAM);
+							}}
+						>
+							<ImageIcon
+								src='/assets/icons/telegram-icon.svg'
+								alt='twitter-icon'
+								imgClassName='-ml-1 mt-1.5'
+							/>
+						</Button>
+					</div>
+				</div>
+			</div>
 			<p className={`${poppins.className} text-xl`}>
 				Join a supportive, collaborative ecosystem with a greater purpose – permissionless, flexible, and Join a supportive, collaborative ecosystem with a greater purpose –
 				permissionless, flexible!

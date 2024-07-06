@@ -14,6 +14,7 @@ interface ICampaignCard {
 	buttonText: string;
 	iconSrc: string;
 	iconAlt: string;
+	style?: any;
 }
 
 const CampaignCard: FC<ICampaignCard> = (props) => {

@@ -4,12 +4,20 @@
 
 import { createSlice, PayloadAction } from '@reduxjs/toolkit';
 import { HYDRATE } from 'next-redux-wrapper';
-import { ICampaignsStore } from './@types';
+import { ICampaignDetails, ICampaignsStore } from './@types';
 
 const initialState: ICampaignsStore = {
+	campaign_details: {},
 	error: null,
 	loading: false
 };
+
+type ICampaignDetailsPayload = {
+	[K in keyof ICampaignDetails]: {
+		key: K;
+		value: ICampaignDetails[K];
+	};
+}[keyof ICampaignDetails];
 
 export const campaignsStore = createSlice({
 	extraReducers: (builder) => {
@@ -27,9 +35,36 @@ export const campaignsStore = createSlice({
 		reset: (state) => {
 			// eslint-disable-next-line @typescript-eslint/no-unused-vars
 			state = {
+				campaign_details: {},
 				error: null,
 				loading: false
 			};
+		},
+		setCampaignDetails_Field: (state, action: PayloadAction<ICampaignDetailsPayload>) => {
+			const obj = action.payload;
+			if (obj) {
+				const { key, value } = obj;
+				switch (key) {
+					case 'name':
+						state.campaign_details[key] = value;
+						break;
+					case 'category':
+						state.campaign_details[key] = value;
+						break;
+					case 'askAmount':
+						state.campaign_details[key] = value;
+						break;
+					case 'description':
+						state.campaign_details[key] = value;
+						break;
+					case 'xAccount':
+						state.campaign_details[key] = value;
+						break;
+					case 'poster':
+						state.campaign_details[key] = value;
+						break;
+				}
+			}
 		},
 		setError: (state, action: PayloadAction<string | null>) => {
 			state.error = action.payload;
