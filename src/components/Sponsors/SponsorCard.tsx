@@ -18,34 +18,22 @@ const SponsorCard = () => {
 	return (
 		<article className='flex justify-center gap-x-4'>
 			<div
-				className='flex h-[404px] w-[330px] flex-col gap-y-2 bg-white p-4'
+				className='flex h-[428px] w-[330px] flex-col items-center gap-y-2 bg-white p-3'
 				style={{
 					border: '5px solid #000',
 					borderRadius: '30px'
 				}}
 			>
-				<div className='flex items-center justify-between'>
+				<div className='flex items-center justify-center'>
 					<ImageIcon
 						src={avatarArray[2]?.url || 'https://i.ibb.co/1R4P6rj/profile-icon-1.png'}
 						alt='profile-image'
 						imgClassName='h-[103px] w-[103px]'
 					/>
-					<div className='flex flex-col gap-y-4'>
-						<p className='flex items-center justify-center rounded-[72px] bg-[#FFD7F9] px-3 py-1'>ASK: 500 $Treats</p>
-						<Progress
-							type='circle'
-							percent={75}
-							size={63}
-							className='ml-auto'
-							showInfo={true}
-							strokeColor='var(--red_primary)'
-							strokeWidth={10}
-						/>
-					</div>
 				</div>
 				<h1 className='text-[40px] tracking-wider text-black'>Project Name</h1>
-				<p className={`${poppins.className} text-xl`}>
-					Join a supportive, collaborative ecosystem with a greater purpose – permissionless, flexible, and...
+				<p className={`${poppins.className} text-center text-xl`}>
+					Join a supportive, collaborative ecosystem with a greater purpose..
 					<span
 						className='ml-2 cursor-pointer text-sm text-sky-500'
 						onClick={() => {
@@ -62,8 +50,30 @@ const SponsorCard = () => {
 						see more
 					</span>
 				</p>
+				<div className='flex items-center justify-center gap-x-4'>
+					<ImageIcon
+						src='/assets/icons/treats-icon-mini.svg'
+						alt='treats-icon'
+						imgClassName='mt-3'
+					/>
+					<div className='flex flex-col'>
+						<h1 className='flex items-center gap-x-2 text-[30px]'>
+							100/400
+							<ImageIcon
+								src='/assets/icons/dollar-icon.svg'
+								alt='dollar-icon'
+								imgClassName='mt-1.5'
+							/>{' '}
+							<span className='-ml-4'>Treats</span>
+						</h1>
+						<Progress
+							percent={75}
+							className='-mt-2'
+						/>
+					</div>
+				</div>
 				<Button
-					className={`${bangers.className} flex h-[37px] w-[61px] items-center justify-center rounded-[72px] border-[2px] border-solid border-black bg-yellow_primary text-xl hover:text-black`}
+					className={`${bangers.className} flex h-[37px] w-full items-center justify-center rounded-[72px] border-[2px] border-solid border-black bg-yellow_primary text-xl hover:text-black`}
 				>
 					Tip
 				</Button>
