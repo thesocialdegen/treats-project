@@ -12,15 +12,17 @@ export interface IModalStore {
 
 export enum ETitleType {
 	NONE = 'none',
-
 	SPONSOR_DETAILS = 'sponsor-details'
 }
 
 export enum EFooterType {
 	NONE = 'none',
-	SPONSOR_DETAILS = 'sponsor-details'
+	SPONSOR_DETAILS = 'sponsor-details',
+	CAMPAIGN_DETAILS = 'campaign-details'
 }
+
 export enum EContentType {
 	NONE = 'none',
-	SPONSOR_DETAILS = 'sponsor-details'
+	SPONSOR_DETAILS = 'sponsor-details',
+	CAMPAIGN_DETAILS = 'campaign-details'
 }

@@ -1,13 +1,20 @@
 // Copyright 2019-2025 @polkassembly/polkassembly authors & contributors
 // This software may be modified and distributed under the terms
 // of the Apache-2.0 license. See the LICENSE file for details.
+// eslint-disable-next-line @typescript-eslint/no-unused-vars
+import { campaignsStore } from './index';
+// Copyright 2019-2025 @polkassembly/polkassembly authors & contributors
+// This software may be modified and distributed under the terms
+// of the Apache-2.0 license. See the LICENSE file for details.
 
 import { createAsyncThunk } from '@reduxjs/toolkit';
-import { FormInstance } from 'antd';
 import { campaignsActions } from '.';
+import { FormInstance } from 'antd';
+import { RootState } from '../@types';
+import { ICampaignDetailsBody } from '@/types/backend-types';
+import { api } from '../api';
 
 interface ICampaignDetailsValueChangedParams {
-	form: FormInstance<any>;
 	values: {
 		name?: string;
 		category?: string;
@@ -17,11 +24,50 @@ interface ICampaignDetailsValueChangedParams {
 		poster?: string;
 	};
 }
-export const campaignDetailsFieldValueChanged = createAsyncThunk('campaigns/campaignDetailsFieldValueChanged', async (params: ICampaignDetailsValueChangedParams, { dispatch }) => {
-	const { form, values } = params;
 
+interface ICampaignDetailsParams {
+	form?: FormInstance<any>;
+	values: any;
+}
+
+// eslint-disable-next-line @typescript-eslint/no-unused-vars
+export const campaignDetails = createAsyncThunk('campaigns/campaignDetails', async (params: ICampaignDetailsParams, { dispatch, getState }) => {
+	// const { form } = params;
+	const store = getState() as RootState;
+	const campaignsStore = store.campaigns;
+	const { campaign_details } = campaignsStore;
+
+	// eslint-disable-next-line @typescript-eslint/no-unused-vars
+	const query: ICampaignDetailsBody = {
+		askAmount: campaign_details?.askAmount || '',
+		category: campaign_details?.category || '',
+		description: campaign_details?.description || '',
+		name: campaign_details?.name || '',
+		poster: campaign_details?.poster || '',
+		xAccount: campaign_details?.xAccount || ''
+	};
+	dispatch(api.endpoints.campaignsDetails.initiate(query))
+		.unwrap()
+		.then((data) => {
+			console.log(data);
+			// dispatch(profileActions.setUser({
+			// ...user,
+			// ...data.user
+			// }));
+			// dispatch(profileActions.setCurrentProfile(data.user));
+			// dispatch(profileActions.setLoadingEditProfile(false));
+			// dispatch(successNotification('Profile updated successfully.'));
+			// dispatch(editProfileModalClose({ form }));
+		})
+		.catch(() => {
+			// dispatch(profileActions.setLoadingEditProfile(false));
+			// dispatch(errorNotification('Failed to update profile'));
+		});
+});
+
+export const campaignDetailsFieldValueChanged = createAsyncThunk('campaigns/campaignDetailsFieldValueChanged', async (params: ICampaignDetailsValueChangedParams, { dispatch }) => {
+	const { values } = params;
 	if (values?.name) {
-		form.setFieldValue('bio', values?.name);
 		dispatch(
 			campaignsActions.setCampaignDetails_Field({
 				key: 'name',
@@ -29,7 +75,6 @@ export const campaignDetailsFieldValueChanged = createAsyncThunk('campaigns/camp
 			})
 		);
 	} else if (values?.category) {
-		form.setFieldValue('category', values?.category);
 		dispatch(
 			campaignsActions.setCampaignDetails_Field({
 				key: 'category',
@@ -37,7 +82,6 @@ export const campaignDetailsFieldValueChanged = createAsyncThunk('campaigns/camp
 			})
 		);
 	} else if (values?.askAmount) {
-		form.setFieldValue('askAmount', values?.askAmount);
 		dispatch(
 			campaignsActions.setCampaignDetails_Field({
 				key: 'askAmount',
@@ -45,7 +89,6 @@ export const campaignDetailsFieldValueChanged = createAsyncThunk('campaigns/camp
 			})
 		);
 	} else if (values?.description) {
-		form.setFieldValue('description', values?.description);
 		dispatch(
 			campaignsActions.setCampaignDetails_Field({
 				key: 'description',
@@ -53,7 +96,6 @@ export const campaignDetailsFieldValueChanged = createAsyncThunk('campaigns/camp
 			})
 		);
 	} else if (values?.xAccount) {
-		form.setFieldValue('xAccount', values?.xAccount);
 		dispatch(
 			campaignsActions.setCampaignDetails_Field({
 				key: 'xAccount',
@@ -61,14 +103,6 @@ export const campaignDetailsFieldValueChanged = createAsyncThunk('campaigns/camp
 			})
 		);
 	} else if (values?.poster) {
-		form.setFieldValue('poster', [
-			{
-				name: 'poster',
-				status: 'done',
-				uid: '-1',
-				url: values?.poster
-			}
-		]);
 		dispatch(
 			campaignsActions.setCampaignDetails_Field({
 				key: 'poster',

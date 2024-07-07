@@ -4,6 +4,7 @@
 import { configureStore } from '@reduxjs/toolkit';
 import { campaignsStore } from './campaigns';
 import { modalStore } from './modal';
+import { useDispatch } from 'react-redux';
 
 export const store = configureStore({
 	devTools: process.env.NODE_ENV !== 'production',
@@ -14,4 +15,9 @@ export const store = configureStore({
 	}
 });
 export type RootState = ReturnType<typeof store.getState>;
+// export type TAppStore = ReturnType<typeof >;
+
+// export const useAppDispatch: any = () => useDispatch<TAppStore['dispatch']>();
+export const useAppDispatch = () => useDispatch<AppDispatch>();
+
 export type AppDispatch = typeof store.dispatch;

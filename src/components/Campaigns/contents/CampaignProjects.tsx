@@ -1,14 +1,18 @@
 // Copyright 2019-2025 @polkassembly/polkassembly authors & contributors
 // This software may be modified and distributed under the terms
 // of the Apache-2.0 license. See the LICENSE file for details.
+import { modalActions } from '@/redux/modal';
+import { EContentType, EFooterType, ETitleType } from '@/redux/modal/@types';
 import ImageIcon from '@/ui-components/ImageIcon';
 import { bangers, poppins } from '@/utils/fonts';
 import { Button } from 'antd';
 import { useRouter } from 'next/navigation';
 import React from 'react';
+import { useDispatch } from 'react-redux';
 
 const CampaignProjects = () => {
 	const router = useRouter();
+	const dispatch = useDispatch();
 	return (
 		<section>
 			<div
@@ -46,6 +50,16 @@ const CampaignProjects = () => {
 						</p>
 						<Button
 							className={`${bangers.className} flex h-[67px] w-[345px] items-center justify-center rounded-[72px] border-[3px] border-solid border-black bg-yellow_primary text-[40px] hover:text-black`}
+							onClick={() => {
+								dispatch(
+									modalActions.setModal({
+										contentType: EContentType.CAMPAIGN_DETAILS,
+										footerType: EFooterType.NONE,
+										open: true,
+										titleType: ETitleType.NONE
+									})
+								);
+							}}
 						>
 							list your project
 						</Button>
