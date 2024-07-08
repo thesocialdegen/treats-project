@@ -47,7 +47,7 @@ export const campaignDetails = createAsyncThunk('campaigns/campaignDetails', asy
 		xAccount: campaign_details?.xAccount || ''
 	};
 	console.log('query --> ', query);
-	dispatch(api.endpoints.campaignsDetails.initiate(query))
+	dispatch(api.endpoints.createCampaignsDetails.initiate(query))
 		.unwrap()
 		.then((data) => {
 			console.log(data);

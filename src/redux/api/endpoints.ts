@@ -10,11 +10,20 @@ import { transformErrorResponse } from './utils/error';
 import { ICampaignDetailsBody, ICampaignDetailsResponse } from '@/types/backend-types';
 
 export const endpoints = (builder: EndpointBuilder<BaseQueryFn<string | FetchArgs, unknown, FetchBaseQueryError, {}, FetchBaseQueryMeta>, never, 'backend-api'>) => ({
-	campaignsDetails: builder.mutation<ICampaignDetailsResponse, ICampaignDetailsBody>({
+	createCampaignsDetails: builder.mutation<ICampaignDetailsResponse, ICampaignDetailsBody>({
 		query: (body) => ({
 			body: body,
 			method: 'POST',
 			url: 'createCampaigns'
+		}),
+		transformErrorResponse: transformErrorResponse,
+		transformResponse: (response: ICampaignDetailsResponse) => response
+	}),
+	getCampaigns: builder.mutation<ICampaignDetailsResponse, ICampaignDetailsBody>({
+		query: (body) => ({
+			body: body,
+			method: 'POST',
+			url: 'campaign'
 		}),
 		transformErrorResponse: transformErrorResponse,
 		transformResponse: (response: ICampaignDetailsResponse) => response
