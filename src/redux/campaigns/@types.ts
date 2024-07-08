@@ -6,6 +6,7 @@ export interface ICampaignsStore {
 	error: string | null;
 	loading: boolean;
 	campaign_details: ICampaignDetails;
+	isCampaignsCreationLoading: boolean;
 	isCampaignsLoading: boolean;
 	campaigns: any;
 }

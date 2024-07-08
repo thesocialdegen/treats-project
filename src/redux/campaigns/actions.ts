@@ -13,6 +13,7 @@ import { FormInstance } from 'antd';
 import { RootState } from '../@types';
 import { ICampaignDetailsBody, ICampaignDetailsQuery } from '@/types/backend-types';
 import { api } from '../api';
+import { successNotification } from '../notification/actions';
 
 interface ICampaignDetailsValueChangedParams {
 	values: {
@@ -30,6 +31,21 @@ interface ICampaignDetailsParams {
 	values: any;
 }
 
+function getCampaign(action: any) {
+	const campaignBody = action || {};
+	const { name, askAmount, description, category, campaign_id, poster, xAccount } = campaignBody;
+	const newCampaign: ICampaignsFields = {
+		askAmount,
+		campaign_id,
+		category,
+		description,
+		name,
+		poster,
+		xAccount
+	};
+	return newCampaign;
+}
+
 // eslint-disable-next-line @typescript-eslint/no-unused-vars
 export const campaignDetails = createAsyncThunk('campaigns/campaignDetails', async (params: ICampaignDetailsParams, { dispatch, getState }) => {
 	// const { form } = params;
@@ -37,7 +53,6 @@ export const campaignDetails = createAsyncThunk('campaigns/campaignDetails', asy
 	const campaignsStore = store.campaigns;
 	const { campaign_details } = campaignsStore;
 
-	// eslint-disable-next-line @typescript-eslint/no-unused-vars
 	const query: ICampaignDetailsBody = {
 		askAmount: campaign_details?.askAmount || '',
 		category: campaign_details?.category || '',
@@ -48,16 +63,10 @@ export const campaignDetails = createAsyncThunk('campaigns/campaignDetails', asy
 	};
 	dispatch(api.endpoints.createCampaignsDetails.initiate(query))
 		.unwrap()
-		.then((data) => {
-			console.log(data);
-			// dispatch(profileActions.setUser({
-			// ...user,
-			// ...data.user
-			// }));
-			// dispatch(profileActions.setCurrentProfile(data.user));
-			// dispatch(profileActions.setLoadingEditProfile(false));
-			// dispatch(successNotification('Profile updated successfully.'));
-			// dispatch(editProfileModalClose({ form }));
+		.then(() => {
+			const campaign = getCampaign(query);
+			dispatch(campaignsActions.setNewCampaign(campaign));
+			dispatch(successNotification('Event added to calendar successfully'));
 		})
 		.catch(() => {
 			// dispatch(profileActions.setLoadingEditProfile(false));

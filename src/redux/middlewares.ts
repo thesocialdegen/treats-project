@@ -4,6 +4,7 @@
 import { FLUSH, PAUSE, PERSIST, PURGE, REGISTER, REHYDRATE } from 'redux-persist';
 import { campaignMiddleware } from './campaigns/middlewares';
 import { api } from './api';
+import { notificationMiddleware } from './notification/middlewares';
 
 export const getDefaultMiddlewares = (getDefaultMiddleware: any) => {
 	return getDefaultMiddleware({
@@ -12,5 +13,6 @@ export const getDefaultMiddlewares = (getDefaultMiddleware: any) => {
 		}
 	})
 		.concat(api.middleware)
-		.concat(campaignMiddleware);
+		.concat(campaignMiddleware)
+		.concat(notificationMiddleware);
 };

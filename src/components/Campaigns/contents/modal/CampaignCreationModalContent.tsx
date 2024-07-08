@@ -2,9 +2,11 @@
 // This software may be modified and distributed under the terms
 // of the Apache-2.0 license. See the LICENSE file for details.
 import { campaignDetails, campaignDetailsFieldValueChanged } from '@/redux/campaigns/actions';
+import { modalActions } from '@/redux/modal';
+import { EContentType, EFooterType, ETitleType } from '@/redux/modal/@types';
 import { useCampaignsSelector } from '@/redux/selectors';
 import { useAppDispatch } from '@/redux/store';
-import PosterImgUpload from '@/ui-components/PosterImgUpload';
+// import PosterImgUpload from '@/ui-components/PosterImgUpload';
 // import ImageIcon from '@/ui-components/ImageIcon';
 // import PosterImgUpload from '@/ui-components/PosterImgUpload';
 import { bangers } from '@/utils/fonts';
@@ -16,6 +18,14 @@ const CampaignCreationModalContent = () => {
 	const { campaign_details } = useCampaignsSelector();
 	const onSubmit = async (values: any) => {
 		dispatch(campaignDetails({ values }));
+		dispatch(
+			modalActions.setModal({
+				contentType: EContentType.CAMPAIGN_DETAILS,
+				footerType: EFooterType.NONE,
+				open: false,
+				titleType: ETitleType.NONE
+			})
+		);
 	};
 
 	return (
@@ -161,7 +171,7 @@ const CampaignCreationModalContent = () => {
 						/>
 					</Form.Item>
 				</article>
-				<article className='flex flex-col gap-y-4'>
+				{/* <article className='flex flex-col gap-y-4'>
 					<p className='text-xl'>campaign poster (Optional)</p>
 					<div className='cover-img flex items-center gap-x-5'>
 						<PosterImgUpload
@@ -187,7 +197,7 @@ const CampaignCreationModalContent = () => {
 							imgWrapperClassName='w-[135px] h-[55px] flex items-center justify-center overflow-hidden'
 						/>
 					</div>
-				</article>
+				</article> */}
 				<article>
 					<Button
 						className={`${bangers.className} flex h-[37px] w-full items-center justify-center rounded-[72px] border-[2px] border-solid border-black bg-yellow_primary text-xl hover:text-black`}

@@ -10,6 +10,7 @@ const initialState: ICampaignsStore = {
 	campaign_details: {},
 	campaigns: {},
 	error: null,
+	isCampaignsCreationLoading: false,
 	isCampaignsLoading: false,
 	loading: false
 };
@@ -40,6 +41,7 @@ export const campaignsStore = createSlice({
 				campaign_details: {},
 				campaigns: {},
 				error: null,
+				isCampaignsCreationLoading: false,
 				isCampaignsLoading: false,
 				loading: false
 			};
@@ -79,8 +81,22 @@ export const campaignsStore = createSlice({
 		setError: (state, action: PayloadAction<string | null>) => {
 			state.error = action.payload;
 		},
+		setIsCampaignsCreationLoading: (state, action: PayloadAction<boolean>) => {
+			state.isCampaignsCreationLoading = action.payload;
+		},
 		setLoading: (state, action: PayloadAction<boolean>) => {
 			state.loading = action.payload;
+		},
+		setNewCampaign: (state, action: PayloadAction<ICampaignsFields>) => {
+			const campaign = action.payload;
+			if (!state?.campaigns?.data?.events?.length) {
+				state.campaigns.data.events = [campaign];
+			} else {
+				state.campaigns.data.events.push(campaign);
+			}
+			if (state) {
+				state.campaigns.data.total = state.campaigns.data.total + 1;
+			}
 		}
 	}
 });

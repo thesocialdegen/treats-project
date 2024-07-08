@@ -18,7 +18,6 @@ export const campaignMiddleware: AppMiddleware = (store) => (next) => (action) =
 		dispatch(api.endpoints.getCampaigns.initiate(action.payload.query))
 			.unwrap()
 			.then((data) => {
-				console.log('from middleware --> ', data.campaigns);
 				dispatch(campaignsActions.setCampaigns(data.campaigns));
 				if (action.payload.isLoading) {
 					dispatch(campaignsActions.setCampaignsLoading(false));
