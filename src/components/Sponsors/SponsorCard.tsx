@@ -9,10 +9,16 @@ import ImageIcon from '@/ui-components/ImageIcon';
 import { bangers, poppins } from '@/utils/fonts';
 import { avatarArray } from '@/utils/profileImages';
 import { Button, Progress } from 'antd';
-import React from 'react';
+import React, { FC } from 'react';
 import { useDispatch } from 'react-redux';
 
-const SponsorCard = () => {
+interface ISponsorCard {
+	campaign: ICampaignsFields;
+}
+
+const SponsorCard: FC<ISponsorCard> = (props) => {
+	const { campaign } = props;
+	console.log('inside sponsor card --> ', campaign);
 	const dispatch = useDispatch();
 
 	return (
@@ -31,9 +37,9 @@ const SponsorCard = () => {
 						imgClassName='h-[103px] w-[103px]'
 					/>
 				</div>
-				<h1 className='text-[40px] tracking-wider text-black'>Project Name</h1>
+				<h1 className='text-[40px] tracking-wider text-black'>{campaign?.name}</h1>
 				<p className={`${poppins.className} text-center text-xl`}>
-					Join a supportive, collaborative ecosystem with a greater purpose..
+					{campaign?.description?.substring(0, 70)}
 					<span
 						className='ml-2 cursor-pointer text-sm text-sky-500'
 						onClick={() => {

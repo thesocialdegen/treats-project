@@ -40,7 +40,7 @@ const CampaignCard: FC<ICampaignCard> = (props) => {
 				</div>
 			</div>
 			<h1 className='mt-4 w-[366px] text-6xl tracking-wider'>{title}</h1>
-			<p className={`${poppins.className} w-[366px] text-4xl`}>{description}</p>
+			<p className={`${poppins.className} w-[366px] text-4xl`}>{description?.substring(0, 50)}...</p>
 			<Button
 				className={`${bangers.className} mt-auto flex h-[45px] w-[164px] items-center justify-center rounded-[72px] border-[3px] border-solid border-black bg-yellow_primary text-[28px] hover:text-black`}
 			>

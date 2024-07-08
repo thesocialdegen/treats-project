@@ -13,7 +13,6 @@ import { useCampaignsSelector } from '@/redux/selectors';
 const CampaignSocialGood = () => {
 	const dispatch = useDispatch();
 	const { campaigns } = useCampaignsSelector();
-	console.log('All Campaign Details --> ', campaigns?.data?.events);
 
 	return (
 		<section>
@@ -49,28 +48,28 @@ const CampaignSocialGood = () => {
 			<article className='relative -top-[650px]'>
 				<div className='flex justify-center gap-x-[90px]'>
 					<CampaignCard
-						title='Plantation drive'
+						title={campaigns?.data?.events?.[0]?.name}
 						treats={100}
 						progress={30}
-						description='make a difference! one $treat a time!'
+						description={campaigns?.data?.events?.[0]?.description}
 						buttonText='contribute'
 						iconSrc='/assets/icons/treats-mini-icon.svg'
 						iconAlt='treats-icon'
 					/>
 					<CampaignCard
-						title='Clean the river'
+						title={campaigns?.data?.events?.[1]?.name}
 						treats={100}
 						progress={30}
-						description='one $treat = one happy face / one full stomach'
+						description={campaigns?.data?.events?.[1]?.description}
 						buttonText='contribute'
 						iconSrc='/assets/icons/treats-mini-icon.svg'
 						iconAlt='treats-icon'
 					/>
 					<CampaignCard
-						title='Feed and make someone smile'
+						title={campaigns?.data?.events?.[2]?.name}
 						treats={100}
 						progress={30}
-						description='goal: 10,000 $treats'
+						description={campaigns?.data?.events?.[2]?.description}
 						buttonText='contribute'
 						iconSrc='/assets/icons/treats-mini-icon.svg'
 						iconAlt='treats-icon'
