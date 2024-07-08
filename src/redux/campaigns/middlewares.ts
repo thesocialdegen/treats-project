@@ -12,15 +12,14 @@ export const campaignMiddleware: AppMiddleware = (store) => (next) => (action) =
 	const dispatch = store.dispatch;
 
 	if (getCampaigns.match(action)) {
-		console.log('hello from middleware');
 		if (action.payload.isLoading) {
 			dispatch(campaignsActions.setCampaignsLoading(true));
 		}
 		dispatch(api.endpoints.getCampaigns.initiate(action.payload.query))
 			.unwrap()
 			.then((data) => {
-				console.log(data);
-				dispatch(campaignsActions.setCampaigns(data));
+				console.log('from middleware --> ', data.campaigns);
+				dispatch(campaignsActions.setCampaigns(data.campaigns));
 				if (action.payload.isLoading) {
 					dispatch(campaignsActions.setCampaignsLoading(false));
 				}

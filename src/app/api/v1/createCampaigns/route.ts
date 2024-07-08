@@ -12,7 +12,6 @@ import { campaignsCollection } from '@/services/firebase/utils';
 
 export const POST = withErrorHandling(async (req: NextRequest) => {
 	const { name, category, askAmount, description, xAccount, poster } = await getReqBody(req);
-	console.log('from API --> ', name, poster);
 	if (!name && !category && !askAmount && !description && !xAccount) {
 		throw new APIError(`${MESSAGES.REQ_BODY_ERROR}`, 500, API_ERROR_CODE.REQ_BODY_ERROR);
 	}

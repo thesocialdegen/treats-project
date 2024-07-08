@@ -15,7 +15,6 @@ const CampaignCreationModalContent = () => {
 	const dispatch = useAppDispatch();
 	const { campaign_details } = useCampaignsSelector();
 	const onSubmit = async (values: any) => {
-		console.log('form values are --> ', values);
 		dispatch(campaignDetails({ values }));
 	};
 

@@ -5,7 +5,6 @@
 import { createSlice, PayloadAction } from '@reduxjs/toolkit';
 import { HYDRATE } from 'next-redux-wrapper';
 import { ICampaignDetails, ICampaignsStore } from './@types';
-import { ICampaignDetailsResponse } from '@/types/backend-types';
 
 const initialState: ICampaignsStore = {
 	campaign_details: {},
@@ -71,7 +70,7 @@ export const campaignsStore = createSlice({
 				}
 			}
 		},
-		setCampaigns: (state, action: PayloadAction<ICampaignDetailsResponse>) => {
+		setCampaigns: (state, action: PayloadAction<ICampaignsFields>) => {
 			state.campaigns = action.payload;
 		},
 		setCampaignsLoading: (state, action: PayloadAction<boolean>) => {

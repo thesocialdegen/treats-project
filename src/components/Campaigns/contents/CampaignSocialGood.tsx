@@ -5,8 +5,16 @@ import React from 'react';
 import { bangers } from '@/utils/fonts';
 import { Button } from 'antd';
 import CampaignCard from './CampaignCard';
+import { modalActions } from '@/redux/modal';
+import { EContentType, EFooterType, ETitleType } from '@/redux/modal/@types';
+import { useDispatch } from 'react-redux';
+import { useCampaignsSelector } from '@/redux/selectors';
 
 const CampaignSocialGood = () => {
+	const dispatch = useDispatch();
+	const { campaigns } = useCampaignsSelector();
+	console.log('All Campaign Details --> ', campaigns?.data?.events);
+
 	return (
 		<section>
 			<div
@@ -23,6 +31,16 @@ const CampaignSocialGood = () => {
 					<h1 className='text-8xl tracking-wider'>SOCIAL GOOD</h1>
 					<Button
 						className={`${bangers.className} flex h-[77px] w-[430px] items-center justify-center rounded-[72px] border-4 border-black bg-sky_blue_secondary px-10 py-3 text-5xl text-black hover:shadow-lg`}
+						onClick={() => {
+							dispatch(
+								modalActions.setModal({
+									contentType: EContentType.CAMPAIGN_DETAILS,
+									footerType: EFooterType.NONE,
+									open: true,
+									titleType: ETitleType.NONE
+								})
+							);
+						}}
 					>
 						Start an initiative
 					</Button>
