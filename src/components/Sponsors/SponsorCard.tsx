@@ -37,7 +37,7 @@ const SponsorCard: FC<ISponsorCard> = (props) => {
 						imgClassName='h-[103px] w-[103px]'
 					/>
 				</div>
-				<h1 className='text-[40px] tracking-wider text-black'>{campaign?.name}</h1>
+				<h1 className='text-[40px] tracking-wider text-black'>{campaign?.name?.substring(0, 16)}...</h1>
 				<p className={`${poppins.className} text-center text-xl`}>
 					{campaign?.description?.substring(0, 70)}...
 					<span
