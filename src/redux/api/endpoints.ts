@@ -11,10 +11,10 @@ import { ICampaignDetailsBody, ICampaignDetailsResponse } from '@/types/backend-
 
 export const endpoints = (builder: EndpointBuilder<BaseQueryFn<string | FetchArgs, unknown, FetchBaseQueryError, {}, FetchBaseQueryMeta>, never, 'backend-api'>) => ({
 	campaignsDetails: builder.mutation<ICampaignDetailsResponse, ICampaignDetailsBody>({
-		query: (body: any) => ({
+		query: (body) => ({
 			body: body,
 			method: 'POST',
-			url: 'campaigns'
+			url: 'createCampaigns'
 		}),
 		transformErrorResponse: transformErrorResponse,
 		transformResponse: (response: ICampaignDetailsResponse) => response

@@ -9,7 +9,7 @@ import { endpoints } from './endpoints';
 
 export const api = createApi({
 	baseQuery: fetchBaseQuery({
-		baseUrl: '/api',
+		baseUrl: '/api/v1',
 		prepareHeaders: async (headers) => {
 			// const token = await getAccessToken();
 			// if (token) {

@@ -13,3 +13,12 @@ export interface ICampaignDetailsBody {
 export interface ICampaignDetailsResponse {
 	campaigns: ICampaignsFields;
 }
+
+export interface ICampaignDetailsQuery {
+	name?: string;
+	category?: string;
+	askAmount?: string;
+	description?: string;
+	xAccount?: string;
+	poster?: string;
+}
