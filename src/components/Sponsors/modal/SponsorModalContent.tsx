@@ -1,6 +1,7 @@
 // Copyright 2019-2025 @polkassembly/polkassembly authors & contributors
 // This software may be modified and distributed under the terms
 // of the Apache-2.0 license. See the LICENSE file for details.
+import { useModalSelector } from '@/redux/selectors';
 import { ESocials } from '@/types/enums';
 import ImageIcon from '@/ui-components/ImageIcon';
 import { bangers, poppins } from '@/utils/fonts';
@@ -11,6 +12,8 @@ import React from 'react';
 
 const SponsorModalContent = () => {
 	const router = useRouter();
+	const { additionalInfo } = useModalSelector();
+	console.log('from modal --> ', additionalInfo);
 
 	return (
 		<article className={`${bangers.className} -mt-[54px] h-[400px] w-[553px]`}>
@@ -43,7 +46,7 @@ const SponsorModalContent = () => {
 				</div>
 			</div>
 			<div className='flex items-center justify-between'>
-				<h1 className='text-[40px] tracking-wider text-black'>Project Name</h1>
+				<h1 className='text-[40px] tracking-wider text-black'>{additionalInfo?.name}</h1>
 				<div className='flex justify-center'>
 					<div className='flex gap-x-4'>
 						<Button
@@ -61,7 +64,7 @@ const SponsorModalContent = () => {
 						<Button
 							className='m-0 flex h-[36px] w-[36px] items-center justify-center rounded-[9px] border-none bg-sky_blue_primary p-0'
 							onClick={() => {
-								router.push(ESocials.TELEGRAM);
+								router.push(`https://x.com/${additionalInfo?.xAccount?.substring(1)}`);
 							}}
 						>
 							<ImageIcon
@@ -73,10 +76,15 @@ const SponsorModalContent = () => {
 					</div>
 				</div>
 			</div>
-			<p className={`${poppins.className} text-xl`}>
-				Join a supportive, collaborative ecosystem with a greater purpose – permissionless, flexible, and Join a supportive, collaborative ecosystem with a greater purpose –
-				permissionless, flexible!
-			</p>
+			<p className={`${poppins.className} text-xl`}>{additionalInfo?.description?.substring(0, 200)}...</p>
+			{additionalInfo?.poster && (
+				<div className='max-h-[103px]'>
+					<ImageIcon
+						src={additionalInfo?.poster}
+						alt='poster-img'
+					/>
+				</div>
+			)}
 		</article>
 	);
 };

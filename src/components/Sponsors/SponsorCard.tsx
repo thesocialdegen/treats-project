@@ -39,12 +39,13 @@ const SponsorCard: FC<ISponsorCard> = (props) => {
 				</div>
 				<h1 className='text-[40px] tracking-wider text-black'>{campaign?.name}</h1>
 				<p className={`${poppins.className} text-center text-xl`}>
-					{campaign?.description?.substring(0, 70)}
+					{campaign?.description?.substring(0, 70)}...
 					<span
 						className='ml-2 cursor-pointer text-sm text-sky-500'
 						onClick={() => {
 							dispatch(
 								modalActions.setModal({
+									additionalInfo: campaign,
 									contentType: EContentType.SPONSOR_DETAILS,
 									footerType: EFooterType.SPONSOR_DETAILS,
 									open: true,

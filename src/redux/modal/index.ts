@@ -6,9 +6,9 @@ import { EContentType, EFooterType, ETitleType, IModalStore } from './@types';
 import { HYDRATE } from 'next-redux-wrapper';
 
 const initialState: IModalStore = {
+	additionalInfo: {},
 	contentType: EContentType.NONE,
 	footerType: EFooterType.NONE,
-	isDelegationProfileModal: false,
 	open: false,
 	titleType: ETitleType.NONE
 };
@@ -26,15 +26,15 @@ export const modalStore = createSlice({
 	name: 'modal',
 	reducers: {
 		setDelegationProfileModal: (state, action: PayloadAction<boolean>) => {
-			state.isDelegationProfileModal = action.payload;
+			state.additionalInfo = action.payload;
 		},
 		setModal: (state, action: PayloadAction<IModalStore>) => {
-			const { open, contentType, titleType, footerType, isDelegationProfileModal } = action.payload;
+			const { open, contentType, titleType, footerType, additionalInfo } = action.payload;
 			state.open = open;
 			state.titleType = titleType;
 			state.contentType = contentType;
 			state.footerType = footerType;
-			state.isDelegationProfileModal = isDelegationProfileModal;
+			state.additionalInfo = additionalInfo;
 		},
 		setOpen: (state, action: PayloadAction<boolean>) => {
 			state.open = action.payload;

@@ -7,7 +7,7 @@ export interface IModalStore {
 	footerType?: EFooterType;
 	contentType?: EContentType;
 	titleType?: ETitleType;
-	isDelegationProfileModal?: boolean;
+	additionalInfo?: any;
 }
 
 export enum ETitleType {

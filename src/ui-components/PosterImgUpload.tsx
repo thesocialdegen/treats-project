@@ -118,7 +118,7 @@ const PosterImgUpload: FC<IPosterImgUpload> = (props) => {
 					) : (
 						<div className='flex items-center justify-center gap-x-2'>
 							<ImageIcon
-								src='/assets/icons/outlined-plus.svg/'
+								src='/assets/icons/image-upload-icon.svg/'
 								alt='upload-icon'
 							/>
 							<div className='flex flex-col items-start justify-start gap-y-0'>
