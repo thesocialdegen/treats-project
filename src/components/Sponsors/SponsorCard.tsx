@@ -18,7 +18,7 @@ const SponsorCard = () => {
 	return (
 		<article className='flex justify-center gap-x-4'>
 			<div
-				className='flex h-[428px] w-[330px] flex-col items-center gap-y-2 bg-white p-3'
+				className='flex h-[473px] w-[330px] flex-col items-center gap-y-2 bg-white p-3'
 				style={{
 					border: '5px solid #000',
 					borderRadius: '30px'

@@ -5,10 +5,13 @@
 import { createSlice, PayloadAction } from '@reduxjs/toolkit';
 import { HYDRATE } from 'next-redux-wrapper';
 import { ICampaignDetails, ICampaignsStore } from './@types';
+import { ICampaignDetailsResponse } from '@/types/backend-types';
 
 const initialState: ICampaignsStore = {
 	campaign_details: {},
+	campaigns: {},
 	error: null,
+	isCampaignsLoading: false,
 	loading: false
 };
 
@@ -36,7 +39,9 @@ export const campaignsStore = createSlice({
 			// eslint-disable-next-line @typescript-eslint/no-unused-vars
 			state = {
 				campaign_details: {},
+				campaigns: {},
 				error: null,
+				isCampaignsLoading: false,
 				loading: false
 			};
 		},
@@ -65,6 +70,12 @@ export const campaignsStore = createSlice({
 						break;
 				}
 			}
+		},
+		setCampaigns: (state, action: PayloadAction<ICampaignDetailsResponse>) => {
+			state.campaigns = action.payload;
+		},
+		setCampaignsLoading: (state, action: PayloadAction<boolean>) => {
+			state.isCampaignsLoading = action.payload;
 		},
 		setError: (state, action: PayloadAction<string | null>) => {
 			state.error = action.payload;

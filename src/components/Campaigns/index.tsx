@@ -3,16 +3,24 @@
 // of the Apache-2.0 license. See the LICENSE file for details.
 import { bangers } from '@/utils/fonts';
 import { Button } from 'antd';
-import React from 'react';
+import React, { useEffect } from 'react';
 import CampaignSocialGood from './contents/CampaignSocialGood';
 import CampaignProjects from './contents/CampaignProjects';
-// import { useDispatch } from 'react-redux';
+import { useDispatch } from 'react-redux';
+import { getCampaigns } from '@/redux/campaigns/actions';
 // import { campaignsActions } from '@/redux/campaigns';
 // import { useCampaignsSelector } from '@/redux/selectors';
 
 const CampaignsPage = () => {
 	// const { error } = useCampaignsSelector();
-	// const dispatch = useDispatch();
+	const dispatch = useDispatch();
+
+	useEffect(() => {
+		console.log('hello camaigns page');
+		dispatch(getCampaigns({}, true));
+		// eslint-disable-next-line react-hooks/exhaustive-deps
+	}, []);
+
 	const scrollToSocialGood = () => {
 		// dispatch(campaignsActions.setError('true'));
 		const element = document.getElementById('social-good');

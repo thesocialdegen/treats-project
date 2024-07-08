@@ -20,9 +20,8 @@ export const endpoints = (builder: EndpointBuilder<BaseQueryFn<string | FetchArg
 		transformResponse: (response: ICampaignDetailsResponse) => response
 	}),
 	getCampaigns: builder.mutation<ICampaignDetailsResponse, ICampaignDetailsBody>({
-		query: (body) => ({
-			body: body,
-			method: 'POST',
+		query: () => ({
+			method: 'GET',
 			url: 'campaign'
 		}),
 		transformErrorResponse: transformErrorResponse,

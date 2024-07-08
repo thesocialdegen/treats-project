@@ -5,19 +5,17 @@ import { configureStore } from '@reduxjs/toolkit';
 import { campaignsStore } from './campaigns';
 import { modalStore } from './modal';
 import { useDispatch } from 'react-redux';
+import { getDefaultMiddlewares } from './middlewares';
 
 export const store = configureStore({
 	devTools: process.env.NODE_ENV !== 'production',
-	middleware: (getDefaultMiddleware) => getDefaultMiddleware({}),
+	middleware: getDefaultMiddlewares,
 	reducer: {
 		[campaignsStore.name]: campaignsStore.reducer,
 		[modalStore.name]: modalStore.reducer
 	}
 });
+
 export type RootState = ReturnType<typeof store.getState>;
-// export type TAppStore = ReturnType<typeof >;
-
-// export const useAppDispatch: any = () => useDispatch<TAppStore['dispatch']>();
-export const useAppDispatch = () => useDispatch<AppDispatch>();
-
+export const useAppDispatch: any = () => useDispatch<AppDispatch>();
 export type AppDispatch = typeof store.dispatch;

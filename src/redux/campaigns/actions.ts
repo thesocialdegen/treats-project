@@ -7,11 +7,11 @@ import { campaignsStore } from './index';
 // This software may be modified and distributed under the terms
 // of the Apache-2.0 license. See the LICENSE file for details.
 
-import { createAsyncThunk } from '@reduxjs/toolkit';
+import { createAction, createAsyncThunk } from '@reduxjs/toolkit';
 import { campaignsActions } from '.';
 import { FormInstance } from 'antd';
 import { RootState } from '../@types';
-import { ICampaignDetailsBody } from '@/types/backend-types';
+import { ICampaignDetailsBody, ICampaignDetailsQuery } from '@/types/backend-types';
 import { api } from '../api';
 
 interface ICampaignDetailsValueChangedParams {
@@ -111,4 +111,13 @@ export const campaignDetailsFieldValueChanged = createAsyncThunk('campaigns/camp
 			})
 		);
 	}
+});
+
+export const getCampaigns = createAction('house/getCampaign', (params: ICampaignDetailsQuery, isLoading?: boolean) => {
+	return {
+		payload: {
+			isLoading,
+			query: params
+		}
+	};
 });

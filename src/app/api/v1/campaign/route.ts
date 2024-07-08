@@ -53,7 +53,7 @@ export const getCampaigns = async () => {
 	}
 };
 
-export const POST = withErrorHandling(async () => {
+export const GET = withErrorHandling(async () => {
 	// const { campaigns } = await getReqBody(req);
 	const { data } = await getCampaigns();
 	console.log(data);
