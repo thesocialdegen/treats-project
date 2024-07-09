@@ -16,7 +16,7 @@ const SponsorModalContent = () => {
 	console.log('from modal --> ', additionalInfo);
 
 	return (
-		<article className={`${bangers.className} -mt-[54px] h-[400px] w-[553px]`}>
+		<article className={`${bangers.className} -mt-[54px] h-[450px] w-[553px]`}>
 			<div className='flex items-center justify-between'>
 				<ImageIcon
 					src={avatarArray[0]?.url || 'https://i.ibb.co/1R4P6rj/profile-icon-1.png'}
@@ -76,14 +76,13 @@ const SponsorModalContent = () => {
 					</div>
 				</div>
 			</div>
-			<p className={`${poppins.className} text-xl`}>
-				{additionalInfo?.description && additionalInfo?.description?.length < 100 ? additionalInfo?.description : `${additionalInfo?.description?.substring(0, 80)}...`}
-			</p>
+			<p className={`${poppins.className} text-xl`}>{additionalInfo?.description}</p>
 			{additionalInfo?.poster && (
-				<div className='max-h-[103px]'>
+				<div className='mt-4 max-h-[103px] w-full'>
 					<ImageIcon
 						src={additionalInfo?.poster}
 						alt='poster-img'
+						imgClassName='w-full'
 					/>
 				</div>
 			)}

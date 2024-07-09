@@ -13,7 +13,7 @@ import { FormInstance } from 'antd';
 import { RootState } from '../@types';
 import { ICampaignDetailsBody, ICampaignDetailsQuery } from '@/types/backend-types';
 import { api } from '../api';
-import { successNotification } from '../notification/actions';
+import { errorNotification, successNotification } from '../notification/actions';
 
 interface ICampaignDetailsValueChangedParams {
 	values: {
@@ -69,8 +69,7 @@ export const campaignDetails = createAsyncThunk('campaigns/campaignDetails', asy
 			dispatch(successNotification('Event added to calendar successfully'));
 		})
 		.catch(() => {
-			// dispatch(profileActions.setLoadingEditProfile(false));
-			// dispatch(errorNotification('Failed to update profile'));
+			dispatch(errorNotification('Failed to update profile'));
 		});
 });
 

@@ -24,7 +24,7 @@ const SponsorCard: FC<ISponsorCard> = (props) => {
 	return (
 		<article className='flex justify-center gap-x-4'>
 			<div
-				className='flex h-[473px] w-[330px] flex-col items-center gap-y-2 bg-white px-3 py-5'
+				className='flex h-[488px] w-[330px] flex-col items-center gap-y-2 bg-white px-3 py-5'
 				style={{
 					border: '5px solid #000',
 					borderRadius: '30px'

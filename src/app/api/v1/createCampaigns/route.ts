@@ -12,23 +12,33 @@ import { campaignsCollection } from '@/services/firebase/utils';
 
 export const POST = withErrorHandling(async (req: NextRequest) => {
 	const { name, category, askAmount, description, xAccount, poster } = await getReqBody(req);
+
 	if (!name && !category && !askAmount && !description && !xAccount) {
 		throw new APIError(`${MESSAGES.REQ_BODY_ERROR}`, 500, API_ERROR_CODE.REQ_BODY_ERROR);
 	}
 	if (name && typeof name !== 'string') {
 		throw new APIError(`${MESSAGES.INVALID_PARAM_TYPE}`, 500, API_ERROR_CODE.INVALID_PARAM_TYPE);
 	}
+
+	// Check if campaign name already exists
+	const existingCampaign = await campaignsCollection.where('name', '==', name).get();
+	if (!existingCampaign.empty) {
+		throw new APIError(`${MESSAGES.CAMPAIGN_NAME_EXISTS}`, 400, API_ERROR_CODE.CAMPAIGN_NAME_EXISTS);
+	}
+
 	const campaignDoc = campaignsCollection.doc();
 	const newCampaign: ICampaignsFields = {
 		askAmount,
-		campaign_id: name?.replace(' ', '_'),
+		campaign_id: name.replace(' ', '_'),
 		category,
 		description,
 		name,
 		poster,
 		xAccount
 	};
+
 	await campaignDoc.set(newCampaign, { merge: true });
+
 	return NextResponse.json({
 		event: {
 			...newCampaign

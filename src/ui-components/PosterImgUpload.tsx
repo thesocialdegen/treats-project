@@ -98,7 +98,7 @@ const PosterImgUpload: FC<IPosterImgUpload> = (props) => {
 		>
 			{progress ? (
 				<div className='upload-btn-loader flex flex-col items-center justify-center'>
-					<p className='text-white '>
+					<p className='text-black '>
 						<span className='hidden md:block'> Loading</span> {progress}%
 					</p>
 					<Progress
@@ -109,11 +109,11 @@ const PosterImgUpload: FC<IPosterImgUpload> = (props) => {
 					/>
 				</div>
 			) : loading ? (
-				<p className='text-blue_primary flex items-center justify-center text-2xl'>
+				<p className='flex items-center justify-center text-2xl text-black'>
 					<LoadingOutlined />
 				</p>
 			) : (
-				<p className={classNames('flex flex-col items-center justify-center text-2xl capitalize text-white')}>
+				<p className={classNames('flex flex-col items-center justify-center text-2xl capitalize text-black')}>
 					{logoName ? (
 						logoName?.charAt(0)
 					) : (
@@ -148,11 +148,13 @@ const PosterImgUpload: FC<IPosterImgUpload> = (props) => {
 			name={name}
 			valuePropName='fileList'
 			getValueFromEvent={(e) => {
+				console.log('event --> ', e);
 				let images = e;
 				if (!Array.isArray(e)) {
-					images = e?.fileList;
+					images = e?.target?.files;
 				}
-				const image = images[images.length - 1];
+				console.log('images --> ', images);
+				const image = images[images?.length - 1];
 				const isValid = beforeUpload(image);
 				if (isValid) {
 					return [image];

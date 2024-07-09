@@ -15,7 +15,8 @@ const MESSAGES = {
 	[API_ERROR_CODE.ADDRESS_NOT_FOUND_ERROR]: 'Address not found.',
 	[API_ERROR_CODE.USER_NOT_FOUND_ERROR]: 'User not found.',
 	[API_ERROR_CODE.GITHUB_FETCH_ERROR]: 'Something went wrong while fetching data from github. Please try again later.',
-	[API_ERROR_CODE.INVALID_PARAM_TYPE]: 'Invalid parameter type'
+	[API_ERROR_CODE.INVALID_PARAM_TYPE]: 'Invalid parameter type',
+	[API_ERROR_CODE.CAMPAIGN_NAME_EXISTS]: 'Campaign Already exists'
 };
 
 export default MESSAGES;

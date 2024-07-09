@@ -48,9 +48,8 @@ const CampaignSponsor = () => {
 					backgroundPosition: 'center',
 					backgroundRepeat: 'no-repeat',
 					backgroundSize: 'cover',
-					borderLeft: '5px solid #000',
-					borderRadius: '30px',
-					borderRight: '5px solid #000'
+					border: '5px solid #000',
+					borderRadius: '30px'
 				}}
 			>
 				<div className='mt-8 flex w-full items-center justify-between'>
