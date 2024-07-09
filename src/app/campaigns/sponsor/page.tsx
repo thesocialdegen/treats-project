@@ -13,7 +13,7 @@ const page = () => {
 				desc={'welcome to campigns sponsor page'}
 				// img={house?.logo}
 			/>
-			<section className={'h-full w-full'}>
+			<section className={'flex h-full w-full justify-center'}>
 				<CampaignSponsor />
 			</section>
 		</>

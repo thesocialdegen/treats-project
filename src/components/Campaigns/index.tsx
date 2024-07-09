@@ -16,7 +16,6 @@ const CampaignsPage = () => {
 	const dispatch = useDispatch();
 
 	useEffect(() => {
-		console.log('hello camaigns page');
 		dispatch(getCampaigns({}, true));
 		// eslint-disable-next-line react-hooks/exhaustive-deps
 	}, []);

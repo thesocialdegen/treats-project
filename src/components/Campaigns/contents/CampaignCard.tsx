@@ -46,11 +46,6 @@ const CampaignCard: FC<ICampaignCard> = (props) => {
 			>
 				{buttonText}
 			</Button>
-			{/* <ImageIcon
-				src='/assets/icons/thunder-icon.svg'
-				alt='thunder-icon'
-				imgClassName='relative z-100 left-[290px] -top-[46px]'
-			/> */}
 		</div>
 	);
 };

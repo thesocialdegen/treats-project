@@ -76,7 +76,9 @@ const SponsorModalContent = () => {
 					</div>
 				</div>
 			</div>
-			<p className={`${poppins.className} text-xl`}>{additionalInfo?.description?.substring(0, 200)}...</p>
+			<p className={`${poppins.className} text-xl`}>
+				{additionalInfo?.description && additionalInfo?.description?.length < 100 ? additionalInfo?.description : `${additionalInfo?.description?.substring(0, 80)}...`}
+			</p>
 			{additionalInfo?.poster && (
 				<div className='max-h-[103px]'>
 					<ImageIcon
