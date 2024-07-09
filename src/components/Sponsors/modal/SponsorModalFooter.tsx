@@ -6,7 +6,6 @@ import { Button } from 'antd';
 import React from 'react';
 
 const SponsorModalFooter = () => {
-	console.log('i am footer');
 	return (
 		<article>
 			<Button className={`${bangers.className} flex h-[37px] w-full justify-center rounded-[72px] border-2 border-solid border-black bg-yellow_primary text-xl`}>Tip</Button>

@@ -3,10 +3,6 @@
 // of the Apache-2.0 license. See the LICENSE file for details.
 // eslint-disable-next-line @typescript-eslint/no-unused-vars
 import { campaignsStore } from './index';
-// Copyright 2019-2025 @polkassembly/polkassembly authors & contributors
-// This software may be modified and distributed under the terms
-// of the Apache-2.0 license. See the LICENSE file for details.
-
 import { createAction, createAsyncThunk } from '@reduxjs/toolkit';
 import { campaignsActions } from '.';
 import { FormInstance } from 'antd';
@@ -48,7 +44,6 @@ function getCampaign(action: any) {
 
 // eslint-disable-next-line @typescript-eslint/no-unused-vars
 export const campaignDetails = createAsyncThunk('campaigns/campaignDetails', async (params: ICampaignDetailsParams, { dispatch, getState }) => {
-	// const { form } = params;
 	const store = getState() as RootState;
 	const campaignsStore = store.campaigns;
 	const { campaign_details } = campaignsStore;
@@ -66,10 +61,10 @@ export const campaignDetails = createAsyncThunk('campaigns/campaignDetails', asy
 		.then(() => {
 			const campaign = getCampaign(query);
 			dispatch(campaignsActions.setNewCampaign(campaign));
-			dispatch(successNotification('Event added to calendar successfully'));
+			dispatch(successNotification('Campaign added successfully'));
 		})
 		.catch(() => {
-			dispatch(errorNotification('Failed to update profile'));
+			dispatch(errorNotification('Failed to add campaign'));
 		});
 });
 

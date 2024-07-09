@@ -79,7 +79,6 @@ const PosterImgUpload: FC<IPosterImgUpload> = (props) => {
 					return;
 				}
 				setImageUrl(json?.data?.display_url);
-				console.log('imageUrl --> ', json?.data?.display_url);
 			};
 			xhr.onerror = () => {
 				message.error('Image upload failed due to a XHR Transport error. Code: ' + xhr.status);
@@ -148,12 +147,10 @@ const PosterImgUpload: FC<IPosterImgUpload> = (props) => {
 			name={name}
 			valuePropName='fileList'
 			getValueFromEvent={(e) => {
-				console.log('event --> ', e);
 				let images = e;
 				if (!Array.isArray(e)) {
 					images = e?.target?.files;
 				}
-				console.log('images --> ', images);
 				const image = images[images?.length - 1];
 				const isValid = beforeUpload(image);
 				if (isValid) {

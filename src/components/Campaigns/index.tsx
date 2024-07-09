@@ -40,7 +40,6 @@ const CampaignsPage = () => {
 			element.scrollIntoView({ behavior: 'smooth' });
 		}
 	};
-	// console.log('error is comming --> ', error);
 
 	return (
 		<section className='mx-auto mb-2 flex h-full w-full flex-col items-center justify-center gap-y-6 overflow-x-hidden px-2'>

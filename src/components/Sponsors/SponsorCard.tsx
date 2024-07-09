@@ -18,7 +18,6 @@ interface ISponsorCard {
 
 const SponsorCard: FC<ISponsorCard> = (props) => {
 	const { campaign } = props;
-	console.log('inside sponsor card --> ', campaign);
 	const dispatch = useDispatch();
 
 	return (

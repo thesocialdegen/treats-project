@@ -6,13 +6,15 @@ import { campaignsStore } from './campaigns';
 import { modalStore } from './modal';
 import { useDispatch } from 'react-redux';
 import { getDefaultMiddlewares } from './middlewares';
+import { notificationStore } from './notification';
 
 export const store = configureStore({
 	devTools: process.env.NODE_ENV !== 'production',
 	middleware: getDefaultMiddlewares,
 	reducer: {
 		[campaignsStore.name]: campaignsStore.reducer,
-		[modalStore.name]: modalStore.reducer
+		[modalStore.name]: modalStore.reducer,
+		[notificationStore.name]: notificationStore.reducer
 	}
 });
 

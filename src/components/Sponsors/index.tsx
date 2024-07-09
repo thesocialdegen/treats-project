@@ -18,7 +18,7 @@ const CampaignSponsor = () => {
 	const dispatch = useDispatch();
 
 	useEffect(() => {
-		if (!campaigns) {
+		if (!campaigns || campaigns.length === 0) {
 			dispatch(getCampaigns({}, true));
 		}
 		// eslint-disable-next-line react-hooks/exhaustive-deps

@@ -56,7 +56,6 @@ export const getCampaigns = async () => {
 export const GET = withErrorHandling(async () => {
 	// const { campaigns } = await getReqBody(req);
 	const { data } = await getCampaigns();
-	console.log(data);
 	return NextResponse.json({
 		campaigns: { data }
 	});

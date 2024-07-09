@@ -13,7 +13,6 @@ import React from 'react';
 const SponsorModalContent = () => {
 	const router = useRouter();
 	const { additionalInfo } = useModalSelector();
-	console.log('from modal --> ', additionalInfo);
 
 	return (
 		<article className={`${bangers.className} -mt-[54px] h-[450px] w-[553px]`}>
