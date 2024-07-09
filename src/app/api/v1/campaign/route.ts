@@ -5,13 +5,13 @@
 // This software may be modified and distributed under the terms
 // of the Apache-2.0 license. See the LICENSE file for details.
 
-// import getReqBody from '../../api-utils/getReqBody';
 import { NextResponse } from 'next/server';
 import withErrorHandling from '../../api-utils/withErrorHandling';
 import getErrorMessage, { getErrorStatus } from '@/utils/getErrorMessage';
 import { StatusCodes } from 'http-status-codes';
 import { campaignsCollection } from '@/services/firebase/utils';
-export const getCampaigns = async () => {
+
+const getCampaigns = async () => {
 	try {
 		const campaigns: ICampaignsFields[] = [];
 		const campaignsQuery: FirebaseFirestore.Query<FirebaseFirestore.DocumentData> = campaignsCollection;
@@ -54,7 +54,6 @@ export const getCampaigns = async () => {
 };
 
 export const GET = withErrorHandling(async () => {
-	// const { campaigns } = await getReqBody(req);
 	const { data } = await getCampaigns();
 	return NextResponse.json({
 		campaigns: { data }
