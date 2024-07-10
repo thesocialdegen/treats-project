@@ -60,18 +60,6 @@ const SponsorModalContent = () => {
 								imgClassName='mt-1.5'
 							/>
 						</Button>
-						<Button
-							className='m-0 flex h-[36px] w-[36px] items-center justify-center rounded-[9px] border-none bg-sky_blue_primary p-0'
-							onClick={() => {
-								router.push(`https://x.com/${additionalInfo?.xAccount?.substring(1)}`);
-							}}
-						>
-							<ImageIcon
-								src='/assets/icons/telegram-icon.svg'
-								alt='twitter-icon'
-								imgClassName='-ml-1 mt-1.5'
-							/>
-						</Button>
 					</div>
 				</div>
 			</div>

@@ -17,8 +17,7 @@ export enum ETitleType {
 
 export enum EFooterType {
 	NONE = 'none',
-	SPONSOR_DETAILS = 'sponsor-details',
-	CAMPAIGN_DETAILS = 'campaign-details'
+	SPONSOR_DETAILS = 'sponsor-details'
 }
 
 export enum EContentType {
