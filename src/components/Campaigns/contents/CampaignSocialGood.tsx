@@ -5,8 +5,17 @@ import React from 'react';
 import { bangers } from '@/utils/fonts';
 import { Button } from 'antd';
 import CampaignCard from './CampaignCard';
+import { modalActions } from '@/redux/modal';
+import { EContentType, EFooterType, ETitleType } from '@/redux/modal/@types';
+import { useDispatch } from 'react-redux';
+import { useCampaignsSelector } from '@/redux/selectors';
+import { useRouter } from 'next/navigation';
 
 const CampaignSocialGood = () => {
+	const dispatch = useDispatch();
+	const router = useRouter();
+	const { campaigns } = useCampaignsSelector();
+
 	return (
 		<section>
 			<div
@@ -19,40 +28,60 @@ const CampaignSocialGood = () => {
 				}}
 			></div>
 			<div className='relative -top-[750px] left-[250px]'>
-				<div className='flex w-[1136px] items-center justify-between gap-x-[60px]'>
-					<h1 className='text-8xl tracking-wider'>SOCIAL GOOD</h1>
-					<Button
-						className={`${bangers.className} flex h-[77px] w-[430px] items-center justify-center rounded-[72px] border-4 border-black bg-sky_blue_secondary px-10 py-3 text-5xl text-black hover:shadow-lg`}
-					>
-						Start an initiative
-					</Button>
+				<div className='flex w-[1136px] items-center justify-between'>
+					<h1 className='text-7xl tracking-wider'>SOCIAL GOOD</h1>
+					<div className='flex justify-center gap-x-2'>
+						<Button
+							className={`${bangers.className} flex h-[56px] w-[290px] items-center justify-center rounded-[72px] border-4 border-black bg-sky_blue_secondary px-10 py-3 text-3xl text-black hover:shadow-lg`}
+							onClick={() => {
+								dispatch(
+									modalActions.setModal({
+										contentType: EContentType.CAMPAIGN_DETAILS,
+										footerType: EFooterType.NONE,
+										open: true,
+										titleType: ETitleType.NONE
+									})
+								);
+							}}
+						>
+							Start an initiative
+						</Button>
+						<Button
+							className={`${bangers.className} flex h-[56px] w-[169px] items-center justify-center rounded-[72px] border-4 border-black bg-green_primary px-10 py-3 text-3xl text-black hover:shadow-lg`}
+							onClick={() => {
+								router.push('campaigns/sponsor');
+							}}
+						>
+							View All
+						</Button>
+					</div>
 				</div>
 			</div>
 			<article className='relative -top-[650px]'>
 				<div className='flex justify-center gap-x-[90px]'>
 					<CampaignCard
-						title='Plantation drive'
+						title={campaigns?.data?.events?.[0]?.name}
 						treats={100}
 						progress={30}
-						description='make a difference! one $treat a time!'
+						description={campaigns?.data?.events?.[0]?.description}
 						buttonText='contribute'
 						iconSrc='/assets/icons/treats-mini-icon.svg'
 						iconAlt='treats-icon'
 					/>
 					<CampaignCard
-						title='Clean the river'
+						title={campaigns?.data?.events?.[1]?.name}
 						treats={100}
 						progress={30}
-						description='one $treat = one happy face / one full stomach'
+						description={campaigns?.data?.events?.[1]?.description}
 						buttonText='contribute'
 						iconSrc='/assets/icons/treats-mini-icon.svg'
 						iconAlt='treats-icon'
 					/>
 					<CampaignCard
-						title='Feed and make someone smile'
+						title={campaigns?.data?.events?.[2]?.name}
 						treats={100}
 						progress={30}
-						description='goal: 10,000 $treats'
+						description={campaigns?.data?.events?.[2]?.description}
 						buttonText='contribute'
 						iconSrc='/assets/icons/treats-mini-icon.svg'
 						iconAlt='treats-icon'

@@ -4,12 +4,23 @@
 
 import { createSlice, PayloadAction } from '@reduxjs/toolkit';
 import { HYDRATE } from 'next-redux-wrapper';
-import { ICampaignsStore } from './@types';
+import { ICampaignDetails, ICampaignsStore } from './@types';
 
 const initialState: ICampaignsStore = {
+	campaign_details: {},
+	campaigns: {},
 	error: null,
+	isCampaignsCreationLoading: false,
+	isCampaignsLoading: false,
 	loading: false
 };
+
+type ICampaignDetailsPayload = {
+	[K in keyof ICampaignDetails]: {
+		key: K;
+		value: ICampaignDetails[K];
+	};
+}[keyof ICampaignDetails];
 
 export const campaignsStore = createSlice({
 	extraReducers: (builder) => {
@@ -27,15 +38,65 @@ export const campaignsStore = createSlice({
 		reset: (state) => {
 			// eslint-disable-next-line @typescript-eslint/no-unused-vars
 			state = {
+				campaign_details: {},
+				campaigns: {},
 				error: null,
+				isCampaignsCreationLoading: false,
+				isCampaignsLoading: false,
 				loading: false
 			};
+		},
+		setCampaignDetails_Field: (state, action: PayloadAction<ICampaignDetailsPayload>) => {
+			const obj = action.payload;
+			if (obj) {
+				const { key, value } = obj;
+				switch (key) {
+					case 'name':
+						state.campaign_details[key] = value;
+						break;
+					case 'category':
+						state.campaign_details[key] = value;
+						break;
+					case 'askAmount':
+						state.campaign_details[key] = value;
+						break;
+					case 'description':
+						state.campaign_details[key] = value;
+						break;
+					case 'xAccount':
+						state.campaign_details[key] = value;
+						break;
+					case 'poster':
+						state.campaign_details[key] = value;
+						break;
+				}
+			}
+		},
+		setCampaigns: (state, action: PayloadAction<ICampaignsFields>) => {
+			state.campaigns = action.payload;
+		},
+		setCampaignsLoading: (state, action: PayloadAction<boolean>) => {
+			state.isCampaignsLoading = action.payload;
 		},
 		setError: (state, action: PayloadAction<string | null>) => {
 			state.error = action.payload;
 		},
+		setIsCampaignsCreationLoading: (state, action: PayloadAction<boolean>) => {
+			state.isCampaignsCreationLoading = action.payload;
+		},
 		setLoading: (state, action: PayloadAction<boolean>) => {
 			state.loading = action.payload;
+		},
+		setNewCampaign: (state, action: PayloadAction<ICampaignsFields>) => {
+			const campaign = action.payload;
+			if (!state?.campaigns?.data?.events?.length) {
+				state.campaigns.data.events = [campaign];
+			} else {
+				state.campaigns.data.events.push(campaign);
+			}
+			if (state) {
+				state.campaigns.data.total = state.campaigns.data.total + 1;
+			}
 		}
 	}
 });

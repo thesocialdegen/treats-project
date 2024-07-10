@@ -90,3 +90,11 @@ body {
  :where(.css-dev-only-do-not-override-m4timi).ant-menu-light.ant-menu-horizontal >.ant-menu-item-selected::after, :where(.css-dev-only-do-not-override-m4timi).ant-menu-light>.ant-menu.ant-menu-horizontal >.ant-menu-item-selected::after, :where(.css-dev-only-do-not-override-m4timi).ant-menu-light.ant-menu-horizontal >.ant-menu-submenu-selected::after, :where(.css-dev-only-do-not-override-m4timi).ant-menu-light>.ant-menu.ant-menu-horizontal >.ant-menu-submenu-selected::after {
     border: none !important;
  }
+
+ :where(.css-dev-only-do-not-override-m4timi)[class^="ant-form"] [class^="ant-form"], :where(.css-dev-only-do-not-override-m4timi)[class*=" ant-form"] [class^="ant-form"], :where(.css-dev-only-do-not-override-m4timi)[class^="ant-form"] [class*=" ant-form"], :where(.css-dev-only-do-not-override-m4timi)[class*=" ant-form"] [class*=" ant-form"] {
+    width: 100% !important;
+ }
+
+ :where(.css-dev-only-do-not-override-m4timi).ant-upload-wrapper.ant-upload-picture-card-wrapper .ant-upload.ant-upload-select, :where(.css-dev-only-do-not-override-m4timi).ant-upload-wrapper.ant-upload-picture-circle-wrapper .ant-upload.ant-upload-select {
+    width: 100% !important;
+ }

@@ -5,7 +5,7 @@
 import { EContentType, EFooterType, ETitleType } from '@/redux/modal/@types';
 
 export const getTitleWrapperClassName = (titleType?: ETitleType, footerType?: EFooterType, contentType?: EContentType) => {
-	if (contentType === EContentType.SPONSOR_DETAILS) {
+	if (contentType === EContentType.SPONSOR_DETAILS || contentType === EContentType.CAMPAIGN_DETAILS) {
 		return 'flex items-center bg-app_dark_background justify-between gap-x-2 p-6 border-0 rounded-t-xl';
 	}
 
@@ -13,5 +13,5 @@ export const getTitleWrapperClassName = (titleType?: ETitleType, footerType?: EF
 };
 
 export const getCloseButtonClassName = (titleType?: ETitleType, footerType?: EFooterType, contentType?: EContentType) => {
-	return contentType === EContentType.SPONSOR_DETAILS;
+	return contentType === EContentType.SPONSOR_DETAILS || contentType === EContentType.CAMPAIGN_DETAILS;
 };

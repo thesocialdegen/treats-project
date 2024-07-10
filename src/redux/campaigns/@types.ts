@@ -5,4 +5,17 @@
 export interface ICampaignsStore {
 	error: string | null;
 	loading: boolean;
+	campaign_details: ICampaignDetails;
+	isCampaignsCreationLoading: boolean;
+	isCampaignsLoading: boolean;
+	campaigns: any;
+}
+
+export interface ICampaignDetails {
+	name?: string;
+	category?: string;
+	askAmount?: string;
+	description?: string;
+	xAccount?: string;
+	poster?: string;
 }

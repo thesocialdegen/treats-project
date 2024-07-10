@@ -14,6 +14,7 @@ interface ICampaignCard {
 	buttonText: string;
 	iconSrc: string;
 	iconAlt: string;
+	style?: any;
 }
 
 const CampaignCard: FC<ICampaignCard> = (props) => {
@@ -38,18 +39,13 @@ const CampaignCard: FC<ICampaignCard> = (props) => {
 					<Progress percent={progress} />
 				</div>
 			</div>
-			<h1 className='mt-4 w-[366px] text-6xl tracking-wider'>{title}</h1>
-			<p className={`${poppins.className} w-[366px] text-4xl`}>{description}</p>
+			<h1 className='mt-4 w-[366px] text-6xl tracking-wider'>{title?.length < 14 ? title : `${title?.substring(0, 14)}...`}</h1>
+			<p className={`${poppins.className} w-[366px] text-4xl`}>{description?.substring(0, 50)}...</p>
 			<Button
 				className={`${bangers.className} mt-auto flex h-[45px] w-[164px] items-center justify-center rounded-[72px] border-[3px] border-solid border-black bg-yellow_primary text-[28px] hover:text-black`}
 			>
 				{buttonText}
 			</Button>
-			{/* <ImageIcon
-				src='/assets/icons/thunder-icon.svg'
-				alt='thunder-icon'
-				imgClassName='relative z-100 left-[290px] -top-[46px]'
-			/> */}
 		</div>
 	);
 };

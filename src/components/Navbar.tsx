@@ -84,7 +84,13 @@ const Navbar: FC<INavbar> = (props) => {
 					<Button
 						className={`${bangers.className} flex h-9 w-[141px] items-center justify-center rounded-3xl bg-orange_primary text-2xl text-white hover:border-solid hover:border-orange_primary hover:bg-white hover:text-orange_primary`}
 					>
-						BUY $TREATS
+						BUY{' '}
+						<ImageIcon
+							src='/assets/icons/mini-dollar-icon.svg'
+							alt='dollar-icon'
+							imgClassName='mt-2.5 -mr-3 -ml-1'
+						/>
+						TREATS
 					</Button>
 					<Button
 						className={`${bangers.className} flex h-9 w-[79px] items-center justify-center rounded-3xl bg-orange_primary text-2xl text-white hover:border-solid hover:border-orange_primary hover:bg-white hover:text-orange_primary`}

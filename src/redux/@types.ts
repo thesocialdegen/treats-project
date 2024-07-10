@@ -4,9 +4,13 @@
 
 import { AnyAction, Dispatch, Middleware, ThunkDispatch } from '@reduxjs/toolkit';
 import { ICampaignsStore } from './campaigns/@types';
+import { INotificationStore } from './notification/@types';
+import { IModalStore } from './modal/@types';
 
 export type RootState = {
 	campaigns: ICampaignsStore;
+	modal: IModalStore;
+	notification: INotificationStore;
 };
 
 export type AppDispatch = ThunkDispatch<RootState, undefined, AnyAction> & Dispatch<AnyAction>;
