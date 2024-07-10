@@ -102,3 +102,7 @@ body {
  :where(.css-m4timi).ant-form-item {
    width: 100% !important;
  }
+
+ :where(.css-m4timi).ant-upload-wrapper.ant-upload-picture-card-wrapper .ant-upload.ant-upload-select, :where(.css-m4timi).ant-upload-wrapper.ant-upload-picture-circle-wrapper .ant-upload.ant-upload-select {
+   width: 100% !important;
+ }
